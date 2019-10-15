@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijings"
+    tools:context=".presenter.acivity.QR_acivity">
+    <LinearLayout
+        android:layout_width="@dimen/dp_231"
+        android:layout_height="@dimen/dp_231"
+        android:background="@drawable/whis"
+        android:layout_centerInParent="true"
+        >
+        <ImageView
+            android:id="@+id/iv_qr"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_width="@dimen/dp_192"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_height="@dimen/dp_192"
+            />
+    </LinearLayout>
+    
+
+</RelativeLayout>

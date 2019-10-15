@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presenter.acivity.Find_acivity">
+
+    <ImageView
+        android:id="@+id/fan"
+        android:layout_width="@dimen/dp_9"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_14"
+        android:src="@mipmap/back" />
+
+    <TextView
+        android:layout_width="@dimen/dp_97"
+        android:layout_height="@dimen/dp_23"
+        android:layout_marginLeft="@dimen/dp_56"
+        android:layout_marginTop="@dimen/dp_106"
+        android:text="找回密码" />
+
+    <ImageView
+        android:layout_width="@dimen/dp_15"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginLeft="@dimen/dp_54"
+        android:layout_marginTop="@dimen/dp_182"
+        android:src="@mipmap/shoujihaoma" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_173"
+        android:layout_marginRight="@dimen/dp_48"
+        android:gravity="center"
+        android:hint="请输入手机号码" />
+    <TextView
+        android:id="@+id/verification"
+        android:layout_width="@dimen/dp_73"
+        android:layout_height="@dimen/dp_19"
+        android:layout_marginTop="@dimen/dp_183"
+        android:layout_marginLeft="@dimen/dp_278"
+        android:text="获取验证码"
+        android:textColor="@color/colorgenn"/>
+    <ImageView
+        android:layout_width="@dimen/dp_15"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginLeft="@dimen/dp_54"
+        android:layout_marginTop="@dimen/dp_228"
+        android:src="@mipmap/mima"
+
+        />
+
+    <EditText
+        android:id="@+id/et_verifi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_217"
+        android:layout_marginRight="@dimen/dp_48"
+        android:gravity="center"
+        android:hint="请输入验证码" />
+
+    <ImageView
+        android:layout_width="@dimen/dp_15"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginLeft="@dimen/dp_54"
+        android:layout_marginTop="@dimen/dp_274"
+        android:src="@mipmap/xinmima"
+
+        />
+
+    <EditText
+        android:id="@+id/et_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_267"
+        android:layout_marginRight="@dimen/dp_48"
+        android:gravity="center"
+        android:hint="请输入新密码" />
+
+    <ImageView
+        android:layout_width="@dimen/dp_15"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginLeft="@dimen/dp_54"
+        android:layout_marginTop="@dimen/dp_319"
+        android:src="@mipmap/xinmima"
+
+        />
+
+    <EditText
+        android:id="@+id/et_retype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_48"
+        android:layout_marginTop="@dimen/dp_307"
+        android:layout_marginRight="@dimen/dp_48"
+        android:gravity="center"
+        android:hint="请再次输入新密码" />
+
+    <Button
+        android:id="@+id/modification"
+        android:layout_width="@dimen/dp_311"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_365"
+        android:background="@drawable/shop"
+        android:text="确认修改" />
+
+</RelativeLayout>

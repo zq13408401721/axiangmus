@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.landing.Landing_Fragment">
+    <ImageView
+        android:id="@+id/iv_phone"
+        android:layout_width="@dimen/dp_15"
+        android:layout_height="@dimen/dp_17"
+        android:layout_marginTop="@dimen/dp_92"
+        android:layout_marginLeft="@dimen/dp_52"
+        android:src="@mipmap/shoujihaoma"
+        />
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_82"
+        android:layout_marginLeft="@dimen/dp_48"
+        android:layout_marginRight="@dimen/dp_48"
+        android:gravity="center"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:hint="请输入手机号码"
+        />
+    <ImageView
+        android:layout_width="@dimen/dp_15"
+        android:layout_height="@dimen/dp_17"
+        android:layout_below="@+id/iv_phone"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginLeft="@dimen/dp_52"
+        android:src="@mipmap/mima"
+
+        />
+    <EditText
+        android:id="@+id/et_passage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_48"
+        android:layout_marginRight="@dimen/dp_48"
+        android:layout_below="@+id/et_phone"
+        android:gravity="center"
+        android:maxLines="1"
+        android:maxLength="20"
+        android:hint="请输入密码"
+        />
+    <TextView
+        android:id="@+id/forget"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_20"
+        android:text="@string/passage"
+        android:layout_marginTop="@dimen/dp_176"
+        android:layout_marginLeft="@dimen/dp_53"/>
+    <Button
+        android:id="@+id/bt_landings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_213"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:background="@drawable/shop"
+        android:text="登陆"
+        />
+
+
+</RelativeLayout>

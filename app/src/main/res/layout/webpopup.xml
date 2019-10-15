@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/rlf"
+        android:layout_centerInParent="true"
+        android:layout_width="@dimen/dp_270"
+        android:layout_height="@dimen/dp_305"
+        android:background="@mipmap/tankuan"
+        />
+   <RelativeLayout
+       android:layout_width="@dimen/dp_270"
+       android:layout_height="@dimen/dp_305"
+       android:layout_centerInParent="true"
+       >
+       <TextView
+           android:id="@+id/baoming"
+           android:layout_width="@dimen/dp_62"
+           android:layout_height="@dimen/dp_16"
+           android:text="活动报名"
+           android:layout_marginTop="@dimen/dp_15"
+           android:layout_marginLeft="@dimen/dp_104"
+           android:textSize="14sp"/>
+        <View
+            android:id="@+id/xian"
+            android:layout_below="@id/baoming"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            />
+       <ImageView
+           android:id="@+id/ben"
+           android:layout_below="@id/xian"
+           android:layout_width="@dimen/dp_72"
+           android:layout_marginTop="44dp"
+           android:layout_marginLeft="@dimen/dp_94"
+           android:layout_height="@dimen/dp_79"
+           android:src="@mipmap/tankua"
+           />
+       <Button
+           android:id="@+id/hujiao"
+           android:layout_width="@dimen/dp_180"
+           android:layout_height="@dimen/dp_36"
+           android:background="@drawable/shop"
+           android:layout_below="@id/ben"
+           android:layout_marginTop="@dimen/dp_45"
+           android:layout_centerInParent="true"
+           android:layout_marginLeft="@dimen/dp_60"
+           android:text="呼叫"
+           />
+   </RelativeLayout>
+
+
+
+
+    <ImageView
+        android:id="@+id/pop_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/rlf"
+        android:layout_marginLeft="-33dp"
+        android:layout_marginBottom="-33dp"
+        android:layout_toRightOf="@+id/rlf"
+        android:src="@mipmap/tankuang" />
+</RelativeLayout>

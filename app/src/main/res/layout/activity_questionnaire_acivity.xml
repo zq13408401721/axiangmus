@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/beijing"
+    tools:context=".presenter.acivity.Questionnaire_acivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="@dimen/dp_231"
+            android:layout_height="@dimen/dp_79"
+            android:layout_marginLeft="@dimen/dp_74"
+            android:layout_marginTop="@dimen/dp_90"
+            android:gravity="center"
+            android:text="@string/jingxixiangyunxiaoqu"
+            android:textColor="@color/white"
+            android:textSize="33dp" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_21"
+            android:layout_marginLeft="@dimen/dp_178"
+            android:layout_marginTop="@dimen/dp_188" />
+
+        <TextView
+            android:layout_width="@dimen/dp_83"
+            android:layout_height="@dimen/dp_13"
+            android:layout_marginLeft="@dimen/dp_46"
+            android:layout_marginTop="@dimen/dp_253"
+            android:text="1.    您的性别"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_11" />
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_81"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_281"
+            android:background="@drawable/whis">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="男" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="女" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/louhao"
+            android:layout_width="@dimen/dp_83"
+            android:layout_height="@dimen/dp_13"
+            android:layout_below="@+id/rg"
+            android:layout_marginLeft="@dimen/dp_46"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="2.    您的楼号"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_11" />
+
+        <EditText
+            android:id="@+id/et_building"
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_40"
+            android:layout_below="@id/louhao"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/whis"
+            android:hint="@string/louhao"
+            android:textSize="@dimen/dp_14" />
+
+        <TextView
+            android:id="@+id/zhiye"
+            android:layout_width="@dimen/dp_83"
+            android:layout_height="@dimen/dp_13"
+            android:layout_below="@+id/et_building"
+            android:layout_marginLeft="@dimen/dp_46"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="3.    您的职业是什么"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_11" />
+
+        <EditText
+            android:id="@+id/et_occupation"
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_40"
+            android:layout_below="@id/zhiye"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/whis"
+            android:hint="@string/zhiye"
+            android:textSize="@dimen/dp_14" />
+
+        <TextView
+            android:id="@+id/renkou"
+            android:layout_width="@dimen/dp_83"
+            android:layout_height="@dimen/dp_13"
+            android:layout_below="@+id/et_occupation"
+            android:layout_marginLeft="@dimen/dp_46"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="4.    您家常住人口数量"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_11" />
+
+        <RadioGroup
+            android:id="@+id/rg_population"
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_121"
+            android:layout_below="@id/renkou"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/whis">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="1~2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="3~5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text=">5" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/taidu"
+            android:layout_width="@dimen/dp_246"
+            android:layout_height="@dimen/dp_30"
+            android:layout_below="@+id/rg_population"
+            android:layout_marginLeft="@dimen/dp_46"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="5.    以下词汇中哪写能形容你对物业人员的感觉"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_11" />
+
+        <RadioGroup
+            android:id="@+id/rg_manner"
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_334"
+            android:layout_below="@id/taidu"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/whis">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="亲切" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="冷漠" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="热情" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="敷衍了事" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="忠于职守" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="散漫懈怠" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="高效" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/dp_5"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="效率低下" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/jianyi"
+            android:layout_width="@dimen/dp_169"
+            android:layout_height="@dimen/dp_13"
+            android:layout_below="@+id/rg_manner"
+            android:layout_marginLeft="@dimen/dp_46"
+            android:layout_marginTop="@dimen/dp_20"
+            android:text="6.    您对京西祥云的建议"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_11" />
+
+        <EditText
+            android:id="@+id/suggest"
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_75"
+            android:layout_below="@+id/jianyi"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/whis" />
+
+        <Button
+            android:layout_width="@dimen/dp_282"
+            android:layout_height="@dimen/dp_40"
+            android:layout_below="@id/suggest"
+            android:layout_marginLeft="@dimen/dp_47"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/shop"
+            android:text="提交" />
+    </RelativeLayout>
+</ScrollView>

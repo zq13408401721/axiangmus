@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.goketech.smartcommunity">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".app.MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".presenter.acivity.HourBinding_acivit"></activity>
+        <activity android:name=".presenter.acivity.My_house" />
+        <activity android:name=".presenter.acivity.Payment_acivity" />
+        <activity android:name=".presenter.acivity.Guide_acivity" />
+        <activity android:name=".presenter.acivity.QR_acivity" />
+        <activity android:name=".presenter.acivity.Acivity_WebView_acivity" />
+        <activity android:name=".presenter.acivity.Nofees_acivity" />
+        <activity android:name=".presenter.acivity.Announcement_acivity" />
+        <activity android:name=".presenter.acivity.Enter_password_acivity" />
+        <activity android:name=".presenter.acivity.Visitors_acivity" />
+        <activity android:name=".presenter.acivity.Questionnaire_acivity" />
+        <activity android:name=".presenter.acivity.Inform_acivity" />
+        <activity android:name=".presenter.acivity.Repairs_acivity" />
+        <activity android:name=".presenter.acivity.Binding_acivity" /> <!-- <meta-data android:name="com.google.android.actions" /> -->
+        <activity android:name=".presenter.acivity.Find_acivity" />
+        <activity android:name=".presenter.acivity.Change_acivity" />
+        <activity android:name=".presenter.acivity.Start_acivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".presenter.acivity.Verification_acivity" />
+        <activity android:name=".presenter.acivity.Landing_acivity">
+
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

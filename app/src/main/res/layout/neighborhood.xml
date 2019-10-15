@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_tu"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:src="@color/grey"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_toRightOf="@id/iv_tu"
+        android:layout_width="@dimen/dp_39"
+        android:layout_height="@dimen/dp_16"
+        android:textSize="16sp"
+        />
+    <TextView
+        android:id="@+id/building"
+        android:layout_width="@dimen/dp_69"
+        android:layout_height="@dimen/dp_12"
+        android:textSize="12sp"
+        android:layout_toRightOf="@id/iv_tu"
+        android:layout_below="@id/tv_name"/>
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="@dimen/dp_179"
+        android:layout_height="@dimen/dp_14"
+        android:layout_below="@+id/building"
+        android:layout_toRightOf="@id/iv_tu"
+        />
+</RelativeLayout>
