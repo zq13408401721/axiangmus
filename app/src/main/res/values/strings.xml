@@ -29,6 +29,7 @@
     <string name="laifang">来访方式</string>
     <string name="year">年</string>
     <string name="minute">日</string>
+    <string name="neighbor">邻里</string>
     <string name="Web">活动详情</string>
     <string name="daijiedan">待接单</string>
     <string name="chulizhong">处理中</string>
@@ -36,4 +37,7 @@
     <string name="daipingjia">待评价</string>
     <string name="yuyue">预约时间</string>
     <string name="yuyueshijian">预约时间段</string>
+
+    <!--neigbor-->
+    <string name="commonlyusedthephone">常用电话</string>
 </resources>
