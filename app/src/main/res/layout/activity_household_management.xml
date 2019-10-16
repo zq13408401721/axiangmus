@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hous.HouseholdManagementActivity">
+
+
+    <ImageView
+        android:id="@+id/iv_back_household"
+        android:layout_width="@dimen/dp_9"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_14"
+        android:src="@mipmap/fanhuhei"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="71dp"
+        android:layout_height="@dimen/dp_19"
+        android:layout_marginLeft="@dimen/dp_153"
+        android:layout_marginTop="@dimen/dp_14"
+        android:text="@string/housemanagement"
+        android:textColor="@color/blackmangement"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_addhousehold"
+        android:layout_width="@dimen/dp_57"
+        android:layout_height="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginRight="@dimen/dp_17"
+        android:text="@string/addhouseuser"
+        android:textColor="@color/blackmangement"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_marginLeft="@dimen/dp_17"
+        android:layout_marginTop="@dimen/dp_82"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="@dimen/dp_120"
+        android:layout_height="wrap_content"
+        android:text="@string/householdname"
+        android:textColor="#ff999999"
+        android:textSize="@dimen/sp_16"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_mananagement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_114"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+</android.support.constraint.ConstraintLayout>

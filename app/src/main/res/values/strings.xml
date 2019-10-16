@@ -36,4 +36,30 @@
     <string name="daipingjia">待评价</string>
     <string name="yuyue">预约时间</string>
     <string name="yuyueshijian">预约时间段</string>
+
+    <!--我的-->
+    <string name="myhouse">我的房屋</string>
+    <string name="addhouse">添加房屋</string>
+    <string name="householdname">15栋二单元2205 </string>
+    <string name="addhouseuser">添加住户</string>
+    <string name="housemanagement">住户管理</string>
+    <string name="attestation">认证后信息不可修改</string>
+    <string name="tvhouse">为了保障社区内的住户享受高品质服务，请提供真实的信息以供物业中心进行验证</string>
+    <!--绑定房屋-->
+    <string name="bindhouse">绑定房屋</string>
+    <string name="truename">真实的姓名</string>
+    <string name="importphonenumber">请输入手机号码</string>
+    <string name="identitychoice">身份选择</string>
+    <string name="unitselection">单元选择</string>
+    <string name="roomselection">房间选择</string>
+    <string name="confirm">确定</string>
+    <string name="buildingselection">楼宇选择</string>
+    <!--楼宇选择-->
+    <string name="buildtxt">中粮京西祥云小区</string>
+    <string name="achieves">完成</string>
+    <string name="ahousingestate">中粮京西祥云小区</string>
+    <string name="unitse">15栋二单元2205</string>
+    <string name="identity">请选择身份</string>
+    <string name="enterthename">请输入姓名</string>
+    <string name="mesg">接收呼播信息</string>
 </resources>
