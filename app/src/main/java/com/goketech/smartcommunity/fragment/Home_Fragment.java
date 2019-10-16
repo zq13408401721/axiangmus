@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.goketech.smartcommunity.MainActivity;
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.Announce_bean;
@@ -55,20 +54,6 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     Toolbar mTb;
     @BindView(R.id.banner)
     Banner mBanner;
-    @BindView(R.id.fees)
-    ImageView mFees;
-    @BindView(R.id.iv_guanli)
-    ImageView mIvGuanli;
-    @BindView(R.id.ll_iv)
-    LinearLayout mLlIv;
-    @BindView(R.id.entrance)
-    TextView mEntrance;
-    @BindView(R.id.managment)
-    TextView mManagment;
-    @BindView(R.id.cost)
-    TextView mCost;
-    @BindView(R.id.warranty)
-    TextView mWarranty;
     @BindView(R.id.ll_text)
     LinearLayout mLlText;
     @BindView(R.id.tongzhi)
@@ -95,11 +80,19 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     TextView mTitle2;
     @BindView(R.id.tv_title3)
     TextView mTvTitle3;
-    @BindView(R.id.fei)
-    ImageView fei;
     Unbinder unbinder1;
+    Unbinder unbinder;
+    @BindView(R.id.entrance)
+    TextView entrance;
+    @BindView(R.id.managment)
+    TextView managment;
+    @BindView(R.id.fei)
+    TextView fei;
     @BindView(R.id.repairs)
-    ImageView repairs;
+    TextView repairs;
+    @BindView(R.id.fangke)
+    TextView fangke;
+
     private Bundle house_id;
     private String name;
 
@@ -119,7 +112,6 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     protected void initView() {
         Intent intent = getActivity().getIntent();
         house_id = intent.getBundleExtra("house_id");
-
 
     }
 
@@ -166,14 +158,16 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
 
     @Override
     protected void initListener() {
+        //保修服务
         repairs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),Repairs_acivity.class);
+                Intent intent = new Intent(getActivity(), Repairs_acivity.class);
                 startActivity(intent);
 
             }
         });
+        //物业缴费
         fei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,15 +175,17 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
                 startActivity(intent);
             }
         });
-        mFees.setOnClickListener(new View.OnClickListener() {
+        //门禁钥匙
+        entrance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), QR_acivity.class);
-                intent.putExtra("house_id",house_id);
+                intent.putExtra("house_id", house_id);
                 startActivity(intent);
             }
         });
-        mIvGuanli.setOnClickListener(new View.OnClickListener() {
+        //物业管理
+        managment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //1.new 对象
@@ -301,8 +297,8 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     public void getdata_Commonality(Commonality_bean commonality_bean) {
         if (commonality_bean != null) {
             int status = commonality_bean.getStatus();
-            if (status==0){
-                Log.i("Tab",status+"");
+            if (status == 0) {
+                Log.i("Tab", status + "");
                 List<Commonality_bean.DataBean.RepairBean> repair = commonality_bean.getData().getRepair();
                 for (int i = 0; i < repair.size(); i++) {
                     int id = repair.get(i).getId();
@@ -313,12 +309,6 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
         }
 
 
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder1.unbind();
     }
 
     private class MyLoader extends ImageLoader {

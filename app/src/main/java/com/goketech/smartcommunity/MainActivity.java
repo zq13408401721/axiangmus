@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goketech.smartcommunity.base.BaseActivity;
@@ -43,7 +47,8 @@ public class MainActivity extends BaseActivity<Commonality_Contract.View,Commona
     FrameLayout mFl;
     private FragmentManager manager;
     private String house_id;
-
+    private String[] titles = {"首页","邻里","活动","我的"};
+    private int[] icons = {R.drawable.home,R.drawable.linli,R.drawable.huodong,R.drawable.mine};
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -52,12 +57,22 @@ public class MainActivity extends BaseActivity<Commonality_Contract.View,Commona
     @Override
     protected void initFragments() {
         manager = getSupportFragmentManager();
-        mTl.addTab(mTl.newTab().setText("首页").setIcon(R.mipmap.shouye));
-        mTl.addTab(mTl.newTab().setText("邻里").setIcon(R.mipmap.linli));
-        mTl.addTab(mTl.newTab().setText("活动").setIcon(R.mipmap.huodong));
-        mTl.addTab(mTl.newTab().setText("我的").setIcon(R.mipmap.wode));
+        /*mTl.addTab(mTl.newTab().setText().setCustomView(R.drawable.home));
+        mTl.addTab(mTl.newTab().setText().setIcon(R.mipmap.linli));
+        mTl.addTab(mTl.newTab().setText().setIcon(R.mipmap.huodong));
+        mTl.addTab(mTl.newTab().setText().setIcon(R.mipmap.wode));*/
+        for (int i = 0; i <4 ; i++) {
+           mTl.addTab(mTl.newTab().setCustomView(getView(i)));
+        }
     }
-
+    public View getView(int i){
+        View view = LayoutInflater.from(this).inflate(R.layout.tablayout_customview, null);
+        ImageView customview_iv = view.findViewById(R.id.customview_iv);
+        TextView customview_tv = view.findViewById(R.id.customview_tv);
+        customview_iv.setBackgroundResource(icons[i]);
+        customview_tv.setText(titles[i]);
+        return view;
+    }
     @Override
     protected Commonality_Contract.Presenter getPresenter() {
         return new Commonality_presenter();
