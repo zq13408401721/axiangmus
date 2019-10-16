@@ -135,7 +135,12 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
 
     @Override
     protected void initData() {
-
+        Map<String, String> mapss = new HashMap<>();
+        String sign1 = ASCIIUtils.getSign(mapss);
+        RequestBody requestBodyss = new FormBody.Builder()
+                .add("sign", sign1)
+                .build();
+       mPresenter.getData_Commonality(requestBodyss);
         btTijiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,16 +175,9 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
                         .build();
                 mPresenter.getData_Repair(requestBody);
 
-                Map<String, String> mapss = new HashMap<>();
-                String sign1 = ASCIIUtils.getSign(mapss);
-                RequestBody requestBodyss = new FormBody.Builder()
-                        .add("sign", sign1)
-                        .build();
-                mPresenter.getData_Commonality(requestBodyss);
+              /*  for (int i = 0; i < repair.size(); i++) {
 
-                for (int i = 0; i < repair.size(); i++) {
-                    tl.addTab(tl.newTab().setText(repair.get(i).getName()));
-                }
+                }*/
 
             }
         });
@@ -206,17 +204,11 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
                 Toast.makeText(Repairs_acivity.this, "提交成功", Toast.LENGTH_SHORT).show();
                 repair = commonality_bean.getData().getRepair();
                 for (int i = 0; i < repair.size(); i++) {
+                    tl.addTab(tl.newTab().setText(repair.get(i).getName()));
                     id1 = repair.get(i).getId();
-
                 }
             }
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

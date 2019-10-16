@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -64,6 +65,7 @@ public class MainActivity extends BaseActivity<Commonality_Contract.View,Commona
         for (int i = 0; i <4 ; i++) {
            mTl.addTab(mTl.newTab().setCustomView(getView(i)));
         }
+        mTl.setSelectedTabIndicatorColor(Color.TRANSPARENT);
     }
     public View getView(int i){
         View view = LayoutInflater.from(this).inflate(R.layout.tablayout_customview, null);
@@ -85,7 +87,6 @@ public class MainActivity extends BaseActivity<Commonality_Contract.View,Commona
         house_id = intent.getStringExtra("house_id");
 
         addFragment(getSupportFragmentManager(), Home_Fragment.class, R.id.fl, null);
-
 
     }
 
