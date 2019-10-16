@@ -87,7 +87,7 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
         addHours.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(My_house.this, HourBinding_acivit.class);
+                Intent intent = new Intent(My_house.this, Hour_Binding_acivity.class);
                 startActivity(intent);
             }
         });
@@ -100,7 +100,6 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
             if (status == 0) {
                 List<MyHoure_bean.DataBean> data = myAcivity_bean.getData();
                 dataBeans.addAll(data);
-
                 Toast.makeText(My_house.this, data + "", Toast.LENGTH_SHORT).show();
                 my_houre_adaper.notifyDataSetChanged();
                 Toast.makeText(My_house.this, "您的房屋列表", Toast.LENGTH_SHORT).show();
@@ -113,12 +112,5 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
     @Override
     public void showError(String errorMsg) {
 
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

@@ -17,7 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presenter.acivity.HourBinding_acivit"></activity>
+        <activity android:name=".presenter.acivity.Repair_list_acivity"></activity>
+        <activity android:name=".presenter.acivity.Danyuan_Acivity" />
+        <activity android:name=".presenter.acivity.Hour_Binding_acivity" />
         <activity android:name=".presenter.acivity.My_house" />
         <activity android:name=".presenter.acivity.Payment_acivity" />
         <activity android:name=".presenter.acivity.Guide_acivity" />
@@ -33,7 +35,7 @@
         <activity android:name=".presenter.acivity.Binding_acivity" /> <!-- <meta-data android:name="com.google.android.actions" /> -->
         <activity android:name=".presenter.acivity.Find_acivity" />
         <activity android:name=".presenter.acivity.Change_acivity" />
-        <activity android:name=".presenter.acivity.Start_acivity" >
+        <activity android:name=".presenter.acivity.Start_acivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,9 +43,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presenter.acivity.Verification_acivity" />
-        <activity android:name=".presenter.acivity.Landing_acivity">
-
-        </activity>
+        <activity android:name=".presenter.acivity.Landing_acivity" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".wxapi.WXEntryActivity"

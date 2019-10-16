@@ -38,7 +38,7 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_306"
+        android:layout_height="@dimen/dp_256"
         android:layout_below="@id/tv_xiugai"
         android:background="@drawable/whis"
         android:layout_marginTop="@dimen/dp_15"
@@ -133,24 +133,7 @@
             android:layout_below="@id/louyu"
             android:layout_marginTop="@dimen/dp_17"
             />
-        <TextView
-            android:id="@+id/dan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="房间选择"
-            android:layout_below="@id/building"
-            android:layout_marginLeft="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_17"/>
-        <ImageView
-            android:layout_width="@dimen/dp_7"
-            android:layout_height="@dimen/dp_11"
-            android:src="@mipmap/jinru"
 
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/dp_15"
-            android:layout_below="@id/building"
-            android:layout_marginTop="@dimen/dp_17"
-            />
 
     </RelativeLayout>
     <Button

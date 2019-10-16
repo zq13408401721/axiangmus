@@ -18,6 +18,7 @@ import com.goketech.smartcommunity.bean.My_bean;
 import com.goketech.smartcommunity.interfaces.contract.My_Contracy;
 import com.goketech.smartcommunity.presenter.My_Preserter;
 import com.goketech.smartcommunity.presenter.acivity.My_house;
+import com.goketech.smartcommunity.presenter.acivity.Repair_list_acivity;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
 import java.util.HashMap;
@@ -111,6 +112,9 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
     private int total_apply;
     private int status;
 
+    private List<My_bean.DataBean.HouseListBean> house_list;
+    private List<My_bean.DataBean.ActivityListBean> activity_list;
+
     @Override
     protected My_Contracy.Presenter getPresenter() {
         return new My_Preserter();
@@ -143,6 +147,33 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
             }
         });
 
+        //处理中
+        orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                intent.putExtra("id","2");
+                startActivity(intent);
+            }
+        });
+        //待付款
+        payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                intent.putExtra("id","3");
+                startActivity(intent);
+            }
+        });
+        //待评价
+        evaluation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                intent.putExtra("id","4");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -167,44 +198,47 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
             status = my_bean.getStatus();
             if (status == 0) {
                 //活动
-                List<My_bean.DataBean.ActivityListBean> activity_list = my_bean.getData().getActivity_list();
+                activity_list = my_bean.getData().getActivity_list();
                 //房屋
-                List<My_bean.DataBean.HouseListBean> house_list = my_bean.getData().getHouse_list();
-                for (int i = 0; i < activity_list.size(); i++) {
-                    String address = activity_list.get(0).getAddress();
-                    Log.e("Tab",address);
-                }
-              /*  for (int i = 0; i < activity_list.size(); i++) {
+                house_list = my_bean.getData().getHouse_list();
+                for (int i = 0; i < house_list.size(); i++) {
+                    String community = house_list.get(i).getCommunity();
+                    String bulid = house_list.get(i).getBulid();
+                    String room = house_list.get(i).getRoom();
+                    String floor = house_list.get(i).getFloor();
+                    String unit = house_list.get(i).getUnit();
+                    tvName.setText(community);
+                    louhao.setText(bulid+"号楼"+unit+"单元"+floor+room);
 
-                    end_time = activity_list.get(i).getEnd_time();
-                    id = activity_list.get(i).getId();
-                    image = activity_list.get(i).getImage();
-                    title = activity_list.get(i).getTitle();
-                    total_apply = activity_list.get(i).getTotal_apply();
-                    List<My_bean.DataBean.ActivityListBean.UsersBeanX> users = activity_list.get(i).getUsers();
-                    for (int j = 0; j < users.size(); j++) {
-                        String avatar = users.get(i).getAvatar();
-                    }*/
                 }
-            Log.e("sad",status+"");
-                 /*   tvName.setText(houseListBean.getCommunity()+"");
-                    louhao.setText(unit+floor+users);
-                    Glide.with(getActivity()).load(houseListBean.getUsers().get(0).getAvatar()).into(rentou1);
-                    Glide.with(getActivity()).load(houseListBean.getUsers().get(0).getAvatar()).into(rentou2);
-                    Glide.with(getActivity()).load(houseListBean.getUsers().get(0).getAvatar()).into(rentou3);
-*/
-                /*    num.setText(total_apply);
-                    geng1.setText(title);
+                //待接单
+                processing.setOnClickListener(new View.OnClickListener() {
+                    private int community_id;
+                    @Override
+                    public void onClick(View v) {
+                        for (int i = 0; i < house_list.size(); i++) {
+                            community_id = house_list.get(i).getCommunity_id();
+                        }
+
+                        Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                        intent.putExtra("id","1");
+                        intent.putExtra("community_id",community_id+"");
+                        startActivity(intent);
+                    }
+                });
+                for (int i = 0; i < activity_list.size(); i++) {
+                    String title = activity_list.get(i).getTitle();
+                    String address = activity_list.get(i).getAddress();
+                    int total_apply = activity_list.get(i).getTotal_apply();
+                    String end_time = activity_list.get(i).getEnd_time();
+                    Log.e("Tab",title);
+                    shidai.setText(title);
+                    time.setText(end_time);
                     jie.setText(end_time);
                     dizhi.setText(address);
-                    Glide.with(getActivity()).load(image).into(rentous);
-                    Glide.with(getActivity()).load(image).into(rentous1);
-                    Glide.with(getActivity()).load(image).into(rentous3);
-                    nums.setText(total_apply);*/
-         /*   }else{
-
-            }*/
-
+                    nums.setText(total_apply+"");
+                }
+                }
         }
     }
     @Override

@@ -1,13 +1,12 @@
 package com.goketech.smartcommunity.presenter.acivity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
@@ -86,7 +84,7 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
         });
         announce_adaper.setSetfei(new Announce_adaper.Setfei() {
             @Override
-            public void Setfei(RecyclerView RL_dianji, final int p, final TextView tv_ji) {
+            public void Setfei(RelativeLayout RL_dianji, final int p, final TextView tv_ji) {
                 RL_dianji.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

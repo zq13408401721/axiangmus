@@ -3,6 +3,7 @@ package com.goketech.smartcommunity.adaper;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import com.goketech.smartcommunity.bean.Acivity_Web_bean;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.ViewHodler> {
     private ArrayList<Acivity_Web_bean.DataBean> AcivityWeb;
@@ -38,7 +40,10 @@ public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.Vi
         Acivity_Web_bean.DataBean dataBean = AcivityWeb.get(i);
         Glide.with(context).load(dataBean.getImage()).into(viewHodler.iv);
         viewHodler.textView.setText(dataBean.getTitle());
-        Glide.with(context).load(dataBean.getAvatar()).into(viewHodler.iv_biao);
+        for (int j = 0; j < AcivityWeb.size(); j++) {
+            String avatar = AcivityWeb.get(j).getAvatar();
+            Glide.with(context).load(avatar).into(viewHodler.iv_biao);
+        }
         viewHodler.tv_faqi.setText(dataBean.getNick()+"");
         viewHodler.tv_establish.setText(dataBean.getBegin_time());
         viewHodler.remark.setText(dataBean.getRemark());
@@ -51,10 +56,15 @@ public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.Vi
         viewHodler.cost.setText(dataBean.getPrice()+"");
         viewHodler.linkman.setText(dataBean.getContact()+"");
         viewHodler.linkmanPhone.setText(dataBean.getContact_phone()+"");
-        Glide.with(context).load(dataBean.getAvatar()).into(viewHodler.tu);
-        Glide.with(context).load(dataBean.getAvatar()).into(viewHodler.tu1);
-        Glide.with(context).load(dataBean.getAvatar()).into(viewHodler.tu2);
-        viewHodler.num.setText(dataBean.getTotal_apply());
+        List<Acivity_Web_bean.DataBean.UsersBean> users = dataBean.getUsers();
+        for (int j = 0; j < users.size(); j++) {
+            String avatar = users.get(j).getAvatar();
+            Glide.with(context).load(avatar).into(viewHodler.tu);
+            Glide.with(context).load(avatar).into(viewHodler.tu1);
+            Glide.with(context).load(avatar).into(viewHodler.tu2);
+            Glide.with(context).load(avatar).into(viewHodler.tu3);
+        }
+        viewHodler.num.setText(dataBean.getTotal_apply()+"");
     }
 
     @Override
@@ -81,6 +91,7 @@ public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.Vi
         private ImageView tu;
         private ImageView tu1;
         private ImageView tu2;
+        private ImageView tu3;
         private TextView num;
 
         public ViewHodler(@NonNull View itemView) {
@@ -103,6 +114,7 @@ public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.Vi
             tu=itemView.findViewById(R.id.tu1);
             tu1=itemView.findViewById(R.id.tu2);
             tu2=itemView.findViewById(R.id.tu3);
+            tu3=itemView.findViewById(R.id.tu4);
             num=itemView.findViewById(R.id.num);
 
         }

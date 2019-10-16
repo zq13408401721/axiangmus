@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.goketech.smartcommunity.R;
@@ -58,7 +59,7 @@ public class Announce_adaper extends RecyclerView.Adapter<Announce_adaper.ViewHo
     public class ViewHodler extends RecyclerView.ViewHolder {
         private TextView tv_zhang;
         private TextView tv_jieqing;
-        private RecyclerView RL_dianji;
+        private RelativeLayout RL_dianji;
         public ViewHodler(@NonNull View itemView) {
             super(itemView);
             tv_zhang=itemView.findViewById(R.id.zhang);
@@ -73,6 +74,6 @@ public class Announce_adaper extends RecyclerView.Adapter<Announce_adaper.ViewHo
     }
 
     public interface Setfei{
-        void Setfei(RecyclerView RL_dianji, int p, TextView tv_ji);
+        void Setfei(RelativeLayout RL_dianji, int p, TextView tv_ji);
     }
 }

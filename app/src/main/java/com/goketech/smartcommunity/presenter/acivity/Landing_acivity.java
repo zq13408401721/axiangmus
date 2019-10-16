@@ -60,7 +60,7 @@ public class Landing_acivity extends BaseActivity<WeiCode_Conreacy.View, WeiCode
     View mVVis;
     @BindView(R.id.v_viss)
     View mVViss;
-    private String android_code = "a01973b3-38a2-4260-8caa-00c4b53e6d86";
+
     private String telRegex = "^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\\d{8}$";
     public static final String TAG = "loginFragment";
     private IWXAPI api;
@@ -114,14 +114,30 @@ public class Landing_acivity extends BaseActivity<WeiCode_Conreacy.View, WeiCode
             @Override
             public void onClick(View v) {
                 weChatAuth();
-              /*  Map<String, String> map = new HashMap<>();
+                Map<String, String> map = new HashMap<>();
                 map.put("wx_code", code);
                 String sign = ASCIIUtils.getSign(map);
                 RequestBody requestBody = new FormBody.Builder()
                         .add("wx_code", code)
                         .add("sign",sign)
                         .build();
-                mPresenter.getData_Weicaode(android_code,requestBody);*/
+                mPresenter.getData_Weicaode(requestBody);
+
+                Map<String,String> map1 = new HashMap<>();
+                map1.put("code",code);
+                map1.put("openid",openid);
+                map1.put("access_token",access_token);
+                map1.put("mode","3");
+
+              /*  String sign1 = ASCIIUtils.getSign(map);
+                RequestBody requestBody1 = new FormBody.Builder()
+                        .add("mode","3")
+                        .add("openid",openid)
+                        .add("access_token",access_token)
+                        .add("code",code)
+                        .add("sign",sign)
+                        .build();
+                mPresenter.*/
             }
         });
     }

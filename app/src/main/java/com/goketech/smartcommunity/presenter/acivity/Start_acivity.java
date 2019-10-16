@@ -33,6 +33,7 @@ public class Start_acivity extends BaseActivity {
             public void run() {
                 Intent intent = new Intent(Start_acivity.this, Guide_acivity.class);
                 startActivity(intent);
+                finish();
             }
         },2000);
     }

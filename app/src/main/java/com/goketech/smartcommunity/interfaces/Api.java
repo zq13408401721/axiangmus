@@ -3,6 +3,7 @@ package com.goketech.smartcommunity.interfaces;
 
 import com.goketech.smartcommunity.bean.Acivity_Web_bean;
 import com.goketech.smartcommunity.bean.Acivity_bean;
+import com.goketech.smartcommunity.bean.All_bean;
 import com.goketech.smartcommunity.bean.Announce_bean;
 import com.goketech.smartcommunity.bean.Announcement_bean;
 import com.goketech.smartcommunity.bean.Apply_bean;
@@ -15,6 +16,7 @@ import com.goketech.smartcommunity.bean.My_bean;
 import com.goketech.smartcommunity.bean.Neighbourhood_bean;
 import com.goketech.smartcommunity.bean.QR_bean;
 import com.goketech.smartcommunity.bean.Repairs_bean;
+import com.goketech.smartcommunity.bean.SetHour_bean;
 import com.goketech.smartcommunity.bean.SetPassword_bean;
 import com.goketech.smartcommunity.bean.Verification_bean;
 import com.goketech.smartcommunity.bean.WeiCode_bean;
@@ -80,9 +82,17 @@ public interface Api {
     @POST("my/activity")
     Flowable<MyHoure_bean> getdata_MyAcivity(@Body RequestBody body);
 
+    //获取楼宇
+    @POST("getBulid")
+    Flowable<SetHour_bean> getdata_setHour(@Body RequestBody body);
+
     //绑定房屋
     @POST("bindHouse")
     Flowable<Binding_bean> getdata_banding(@Body RequestBody body);
+
+    //用户报修列表
+    @POST("repair/list")
+    Flowable<All_bean> getdata_All(@Body RequestBody body);
 }
 
 
