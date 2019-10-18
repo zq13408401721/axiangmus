@@ -5,14 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presenter.acivity.Landing_acivity">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/color"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_44"
-        android:background="@color/colorbul"></android.support.v7.widget.Toolbar>
+
     <ImageView
         android:id="@+id/background"
-        android:layout_below="@+id/color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_256"
         android:background="@mipmap/tou"/>
@@ -20,6 +15,7 @@
     <RelativeLayout
         android:layout_width="@dimen/dp_360"
         android:layout_height="@dimen/dp_500"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp_180"
         android:layout_marginLeft="@dimen/dp_16"
         android:background="@color/white">
@@ -67,12 +63,12 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/methods"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="其他方式登陆"
             android:layout_marginTop="@dimen/dp_311"
             android:layout_marginLeft="@dimen/dp_133"
-            android:layout_marginRight="@dimen/dp_133"
+
             />
         <ImageView
             android:id="@+id/WeChat"
@@ -88,7 +84,6 @@
             android:layout_height="wrap_content"
             android:text="@string/warning"
             android:layout_marginTop="@dimen/dp_400"
-            android:layout_marginRight="@dimen/dp_57"
             android:layout_marginLeft="@dimen/dp_57"/>
 
     </RelativeLayout>

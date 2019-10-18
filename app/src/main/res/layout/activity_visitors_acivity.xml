@@ -116,6 +116,7 @@
         android:text="@string/laifang" />
 
     <RadioGroup
+        android:id="@+id/rg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/shuliang"
@@ -124,12 +125,14 @@
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/rb_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_35"
             android:text="时间段" />
 
         <RadioButton
+            android:id="@+id/rb_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_30"
@@ -137,70 +140,26 @@
     </RadioGroup>
 
     <View
+        android:id="@+id/xian"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_fangshi"
         android:layout_marginTop="@dimen/dp_18" />
 
-    <TextView
-        android:id="@+id/shiduan"
-        android:layout_width="@dimen/dp_63"
-        android:layout_height="@dimen/dp_16"
-        android:layout_below="@id/tv_fangshi"
-        android:layout_marginLeft="@dimen/dp_14"
-        android:layout_marginTop="@dimen/dp_37"
-        android:text="来访时段" />
-
     <LinearLayout
         android:id="@+id/ll_date"
-        android:layout_width="@dimen/dp_200"
-        android:layout_height="@dimen/dp_116"
-        android:layout_below="@id/shiduan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_300"
+        android:layout_below="@id/xian"
         android:layout_marginTop="@dimen/dp_16"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <DatePicker
-            android:id="@+id/dpPicker"
-            android:layout_width="match_parent"
-            android:datePickerMode="spinner"
-            android:layout_height="match_parent"
-            android:calendarViewShown="false" />
-        <TextView
-            android:id="@+id/dao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_below="@id/shiduan"
-            android:layout_toRightOf="@id/ll_date"
-            android:text="到"/>
-
+       <FrameLayout
+           android:id="@+id/fl"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           />
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/ll_date1"
-            android:layout_width="@dimen/dp_200"
-            android:layout_height="@dimen/dp_116"
-            android:layout_below="@id/shiduan"
-            android:layout_marginTop="@dimen/dp_16"
-            android:layout_toRightOf="@id/ll_date"
-            android:layout_marginLeft="@dimen/dp_5"
-            android:orientation="horizontal">
-
-            <DatePicker
-                android:id="@+id/dpPicker1"
-                android:layout_width="match_parent"
-                android:datePickerMode="spinner"
-                android:layout_height="match_parent"
-                android:calendarViewShown="false" />
-        </LinearLayout>
-
-     <!--   <DatePicker
-            android:id="@+id/dpPicker1"
-            android:layout_width="@dimen/dp_116"
-            android:datePickerMode="spinner"
-            android:layout_height="wrap_content"
-            android:calendarViewShown="false" />-->
-
-
 
     <TextView
         android:id="@+id/yuanyin"
@@ -240,6 +199,7 @@
         android:layout_marginTop="@dimen/dp_18" />
 
     <Button
+        android:id="@+id/yaoqing"
         android:layout_width="@dimen/dp_311"
         android:layout_height="@dimen/dp_40"
         android:layout_below="@id/v_xian"

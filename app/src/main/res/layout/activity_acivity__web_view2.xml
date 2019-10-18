@@ -27,6 +27,7 @@
             android:layout_marginTop="@dimen/dp_14"
          />
     </android.support.v7.widget.Toolbar>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rl"
         android:layout_width="match_parent"
@@ -36,6 +37,7 @@
         android:layout_above="@id/bt_landings"
         android:layout_height="match_parent"
         />
+
     <Button
         android:id="@+id/bt_landings"
         android:layout_width="match_parent"
@@ -43,6 +45,8 @@
         android:background="@drawable/shop"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/dp_30"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_20"
         android:text="报名"
         />
 </RelativeLayout>
