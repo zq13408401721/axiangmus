@@ -122,24 +122,27 @@ public class WXEntryActivity extends BaseActivity implements IWXAPIEventHandler,
     public void wxLoginReturn(WeiCode_bean data) {
         String access_token = data.getData().getAccess_token();
         String openid = data.getData().getOpenid();
-        int status = data.getStatus();
-        Map<String, String> map = new HashMap<>();
-        map.put("mode", "3");
-        map.put("code", "230027");
-        map.put("openid", openid);
-        map.put("phone", "13132158823");
-        map.put("access_token", access_token);
-        String sign = ASCIIUtils.getSign(map);
-
-        RequestBody requestBody = new FormBody.Builder()
-               .add("code", "230027")
-                .add("mode","3")
-                .add("openid",openid)
-                .add("access_token",access_token)
-                .add("phone","13132158823")
-                .add("sign",sign)
-                .build();
-        ((WxLoginPresenter)mPresenter).login(requestBody);
+        Intent intent = new Intent();
+        intent.putExtra("access_token",access_token);
+        intent.putExtra("openid",openid);
+        startActivity(intent);
+//        Map<String, String> map = new HashMap<>();
+//        map.put("mode", "3");
+//        map.put("code", "230027");
+//        map.put("openid", openid);
+//        map.put("phone", "13132158823");
+//        map.put("access_token", access_token);
+//        String sign = ASCIIUtils.getSign(map);
+//
+//        RequestBody requestBody = new FormBody.Builder()
+//               .add("code", "230027")
+//                .add("mode","3")
+//                .add("openid",openid)
+//                .add("access_token",access_token)
+//                .add("phone","13132158823")
+//                .add("sign",sign)
+//                .build();
+//        ((WxLoginPresenter)mPresenter).login(requestBody);
 
     }
 

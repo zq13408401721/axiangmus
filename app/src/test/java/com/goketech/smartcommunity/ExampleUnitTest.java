@@ -4,6 +4,9 @@ import com.goketech.smartcommunity.utils.GenerateValueFile;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.Assert.*;
 
 /**
@@ -24,5 +27,10 @@ public class ExampleUnitTest {
         int baseH = 480;
         String addition = GenerateValueFile.SUPPORT_DIMESION;
         new GenerateValueFile(baseW, baseH, addition).generate();
+
+        Map<String,String> map = new HashMap<>();
+        map.put("real_name","张三");
+        map.put("identity","222110199011221125");
+
     }
 }
