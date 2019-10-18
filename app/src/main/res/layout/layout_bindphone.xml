@@ -44,7 +44,7 @@
         android:layout_width="@dimen/dp_103"
         android:hint="@string/shurushoujihao"
         android:textSize="@dimen/sp_13"
-        android:layout_height="@dimen/dp_14" />
+        android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/bindphone_code"
         app:layout_constraintTop_toTopOf="parent"
@@ -53,14 +53,14 @@
         android:layout_width="@dimen/dp_103"
         android:hint="@string/verification"
         android:layout_marginTop="@dimen/dp_262"
-        android:layout_height="@dimen/dp_14" />
+        android:layout_height="wrap_content" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bindphone_phonenum"
        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/bindphone_phonenum"
        android:layout_marginLeft="@dimen/dp_247"
-        android:layout_marginTop="@dimen/dp_217"
         android:textSize="@dimen/sp_15"
         android:text="@string/huoquyanzhengma"
         android:textColor="#00837B"
@@ -68,20 +68,18 @@
 
         />
     <ImageView
-        android:layout_marginTop="@dimen/dp_216"
        android:layout_marginRight="@dimen/dp_14"
         app:layout_constraintRight_toLeftOf="@id/bindphone_phonenum"
-        app:layout_constraintTop_toTopOf="parent"
-
+        app:layout_constraintTop_toTopOf="@id/bindphone_phonenum"
+        app:layout_constraintBottom_toBottomOf="@id/bindphone_phonenum"
         android:layout_width="@dimen/dp_15"
         android:src="@mipmap/shoujihaoma"
-
         android:layout_height="@dimen/dp_17" />
 
     <ImageView
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bindphone_code"
         app:layout_constraintRight_toLeftOf="@id/bindphone_code"
-        android:layout_marginTop="@dimen/dp_262"
+        app:layout_constraintBottom_toBottomOf="@id/bindphone_code"
         android:layout_marginLeft="@dimen/dp_54"
         android:layout_marginRight="@dimen/dp_15"
         android:layout_width="15dp"

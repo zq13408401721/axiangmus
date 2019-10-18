@@ -15,6 +15,7 @@ import com.goketech.smartcommunity.app.MyApp;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Landing_bean;
 import com.goketech.smartcommunity.bean.WeiCode_bean;
+import com.goketech.smartcommunity.fragment.landing.BindPhone;
 import com.goketech.smartcommunity.interfaces.IBasePresenter;
 import com.goketech.smartcommunity.interfaces.contract.WxContract;
 import com.goketech.smartcommunity.presenter.WxLoginPresenter;
@@ -122,10 +123,11 @@ public class WXEntryActivity extends BaseActivity implements IWXAPIEventHandler,
     public void wxLoginReturn(WeiCode_bean data) {
         String access_token = data.getData().getAccess_token();
         String openid = data.getData().getOpenid();
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, BindPhone.class);
         intent.putExtra("access_token",access_token);
         intent.putExtra("openid",openid);
         startActivity(intent);
+        finish();
 //        Map<String, String> map = new HashMap<>();
 //        map.put("mode", "3");
 //        map.put("code", "230027");

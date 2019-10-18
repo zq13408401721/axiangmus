@@ -18,6 +18,7 @@ public class Constant {
 
     public static String token = "";
 
+    public static Landing_bean userInfo;
     public  static  int community_id=0;
 
     public  static  int house_id=0;

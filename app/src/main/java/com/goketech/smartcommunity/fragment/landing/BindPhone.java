@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goketech.smartcommunity.R;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Landing_bean;
 import com.goketech.smartcommunity.bean.Verification_bean;
@@ -128,5 +129,6 @@ public class BindPhone extends BaseActivity implements BindPhone_Conreacy.View {
     @Override
     public void loginReturn(Landing_bean landing_bean) {
         Toast.makeText(this, ""+landing_bean.getMsg(), Toast.LENGTH_SHORT).show();
+        Constant.userInfo = landing_bean;
     }
 }

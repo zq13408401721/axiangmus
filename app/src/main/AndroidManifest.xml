@@ -45,6 +45,7 @@
         <activity android:name=".presenter.acivity.Verification_acivity" />
         <activity android:name=".presenter.acivity.Landing_acivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".fragment.landing.BindPhone"/>
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true" />
