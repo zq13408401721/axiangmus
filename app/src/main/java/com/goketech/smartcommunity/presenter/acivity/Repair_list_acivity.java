@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goketech.smartcommunity.R;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.fragment.repair_fragment.All_Fragment;
 import com.goketech.smartcommunity.fragment.repair_fragment.Evaluation_frahment;
@@ -53,11 +54,41 @@ public class Repair_list_acivity extends BaseActivity {
         tb.addTab(tb.newTab().setText("待结单"));
         tb.addTab(tb.newTab().setText("处理中"));
         tb.addTab(tb.newTab().setText("待评价"));
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+        tb.addTab(tb.newTab().setText("已完成"));
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        community_id = intent.getStringExtra("community_id");
+        Log.e("idsa",community_id+id);
+        addFragment(manager, All_Fragment.class, R.id.fl, null);
+       /* if (id.equals("1")){
+            addFragment(manager, Evaluation_frahment.class, R.id.fl, null);
+        }else if (id.equals("2")){
+            addFragment(manager, Orders_fragment.class, R.id.fl, null);
+        }else if (id.equals("3")){
+            addFragment(manager, Payment_acivity.class, R.id.fl, null);
+        }else if (id.equals("4")){
+            addFragment(manager, Processing_fragment.class, R.id.fl, null);
+        }*/
+=======
+        String a= Constant.id;
+        if (a.equals("1")){
+            addFragment(manager, Evaluation_frahment.class, R.id.fl, null);
+        }else if (a.equals("2")){
+            addFragment(manager, Orders_fragment.class, R.id.fl, null);
+        }else if (a.equals("3")) {
+            addFragment(manager, Processing_fragment.class, R.id.fl, null);
+        }
+
+>>>>>>> Stashed changes
+=======
        /* Intent intent = getIntent();
         id = intent.getIntExtra("id",0);*/
 
 
 
+>>>>>>> origin/master
     }
 
     @Override

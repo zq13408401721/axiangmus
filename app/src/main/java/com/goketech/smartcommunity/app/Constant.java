@@ -2,6 +2,8 @@ package com.goketech.smartcommunity.app;
 
 import com.goketech.smartcommunity.bean.Commonality_bean;
 
+import com.goketech.smartcommunity.bean.Landing_bean;
+
 import java.io.File;
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class Constant {
 
     public static String token = "";
 
+    public static Landing_bean userInfo;
     public  static  int community_id=0;
 
     public  static  int house_id=0;
@@ -38,5 +41,6 @@ public class Constant {
 
     //登陆houre_id
     public  static  int houre_id;
+
 
 }

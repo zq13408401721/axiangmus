@@ -183,6 +183,14 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
                 startActivity(intent);
             }
         });
+        evaluation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Constant.id="3";
+                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
