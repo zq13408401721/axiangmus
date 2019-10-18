@@ -65,11 +65,13 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
 
     @Override
     protected void initView() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Announcement_acivity.this);
+        rl.setLayoutManager(linearLayoutManager);
         dataBeans = new ArrayList<>();
         announce_adaper = new Announce_adaper(dataBeans, Announcement_acivity.this);
         rl.setAdapter(announce_adaper);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(Announcement_acivity.this);
-        rl.setLayoutManager(linearLayoutManager);
+
+
         announce_adaper.notifyDataSetChanged();
     }
 

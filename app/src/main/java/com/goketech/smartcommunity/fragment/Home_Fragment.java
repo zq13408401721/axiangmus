@@ -55,20 +55,6 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     Toolbar mTb;
     @BindView(R.id.banner)
     Banner mBanner;
-    @BindView(R.id.fees)
-    ImageView mFees;
-    @BindView(R.id.iv_guanli)
-    ImageView mIvGuanli;
-    @BindView(R.id.ll_iv)
-    LinearLayout mLlIv;
-    @BindView(R.id.entrance)
-    TextView mEntrance;
-    @BindView(R.id.managment)
-    TextView mManagment;
-    @BindView(R.id.cost)
-    TextView mCost;
-    @BindView(R.id.warranty)
-    TextView mWarranty;
     @BindView(R.id.ll_text)
     LinearLayout mLlText;
     @BindView(R.id.tongzhi)
@@ -95,10 +81,19 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     TextView mTitle2;
     @BindView(R.id.tv_title3)
     TextView mTvTitle3;
-    @BindView(R.id.fei)
-    ImageView fei;
     Unbinder unbinder1;
+    Unbinder unbinder;
+    @BindView(R.id.entrance)
+    TextView entrance;
+    @BindView(R.id.managment)
+    TextView managment;
+    @BindView(R.id.fei)
+    TextView fei;
     @BindView(R.id.repairs)
+    TextView repairs;
+    @BindView(R.id.fangke)
+    TextView fangke;
+
     ImageView repairs;
     @BindView(R.id.visitor)
     ImageView visitor;
@@ -122,7 +117,6 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     protected void initView() {
         Intent intent = getActivity().getIntent();
         house_id = intent.getBundleExtra("house_id");
-
 
     }
 
@@ -169,6 +163,7 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
 
     @Override
     protected void initListener() {
+        //保修服务
         //新增访客
         visitor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,6 +189,8 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
                 startActivity(intent);
             }
         });
+        //门禁钥匙
+        entrance.setOnClickListener(new View.OnClickListener() {
         //二维码
         mFees.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,6 +200,8 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
                 startActivity(intent);
             }
         });
+        //物业管理
+        managment.setOnClickListener(new View.OnClickListener() {
         //联系物业
         mIvGuanli.setOnClickListener(new View.OnClickListener() {
             @Override

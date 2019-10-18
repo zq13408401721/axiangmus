@@ -58,6 +58,7 @@
         android:hint="简要描述你的故障"
         android:layout_below="@+id/tt"
         android:layout_marginTop="@dimen/dp_30"
+        android:textSize="@dimen/sp_14"
         android:background="@null"
         />
     <ImageView
@@ -83,9 +84,11 @@
         android:layout_marginTop="@dimen/dp_15"
         android:background="@color/grey"/>
     <TextView
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/black"
         android:id="@+id/dizhi"
-        android:layout_width="@dimen/dp_63"
-        android:layout_height="@dimen/dp_16"
+        android:layout_width="@dimen/dp_84"
+        android:layout_height="@dimen/dp_22"
         android:layout_below="@id/xian"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginLeft="@dimen/dp_16"
@@ -98,13 +101,15 @@
         android:layout_below="@id/dizhi"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginLeft="@dimen/dp_16"
-        android:textSize="@dimen/dp_5"
+        android:textSize="@dimen/sp_14"
         android:background="@null"
         android:hint="京东祥云社 15号楼 1单元 509"/>
     <TextView
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/black"
         android:id="@+id/shijian"
-        android:layout_width="@dimen/dp_63"
-        android:layout_height="@dimen/dp_16"
+        android:layout_width="@dimen/dp_84"
+        android:layout_height="@dimen/dp_22"
         android:layout_below="@id/site"
         android:layout_marginTop="@dimen/dp_30"
         android:layout_marginLeft="@dimen/dp_16"
@@ -117,14 +122,16 @@
         android:layout_below="@id/shijian"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginLeft="@dimen/dp_16"
-        android:textSize="@dimen/dp_5"
+        android:textSize="@dimen/sp_14"
         android:background="@null"
         android:hint="2019-09-03  19:00-20:00"/>
 
     <TextView
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/black"
         android:id="@+id/dianhua"
-        android:layout_width="@dimen/dp_63"
-        android:layout_height="@dimen/dp_16"
+        android:layout_width="@dimen/dp_84"
+        android:layout_height="@dimen/dp_22"
         android:layout_below="@id/time"
         android:layout_marginTop="@dimen/dp_30"
         android:layout_marginLeft="@dimen/dp_16"
@@ -137,11 +144,13 @@
         android:layout_below="@id/dianhua"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginLeft="@dimen/dp_16"
-        android:textSize="@dimen/dp_5"
+        android:textSize="@dimen/sp_14"
         android:background="@null"
         android:hint="18675999521"/>
     <TextView
         android:id="@+id/quantum"
+        android:textSize="@dimen/sp_18"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_phone"
@@ -156,7 +165,7 @@
         android:layout_below="@id/quantum"
         android:layout_marginTop="@dimen/dp_15"
         android:layout_marginLeft="@dimen/dp_16"
-        android:textSize="@dimen/dp_5"
+        android:textSize="@dimen/sp_14"
         android:background="@null"
         android:hint="09:00:00-12:00:00"/>
 
