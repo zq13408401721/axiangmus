@@ -32,7 +32,6 @@ public class Neighborhood_Fragment extends BaseFragment<Neighbourhood_Contract.V
     @BindView(R.id.fl)
     RecyclerView fl;
     Unbinder unbinder;
-    private String android_code = "a01973b3-38a2-4260-8caa-00c4b53e6d86";
     private Neighbourhood_adaper neighbourhood_adaper;
     private ArrayList<Neighbourhood_bean.DataBean> dataBeans;
 
@@ -52,7 +51,6 @@ public class Neighborhood_Fragment extends BaseFragment<Neighbourhood_Contract.V
         map.put("community_id", "1");
         String sign = ASCIIUtils.getSign(map);
         RequestBody requestBody = new FormBody.Builder()
-
                 .add("community_id", "1")
                 .add("sign", sign)
                 .build();
@@ -84,12 +82,12 @@ public class Neighborhood_Fragment extends BaseFragment<Neighbourhood_Contract.V
     public void getdata_neighbourhood(Neighbourhood_bean neighbourhood_bean) {
         if (neighbourhood_bean!=null){
             int status = neighbourhood_bean.getStatus();
-            if (status==1){
+            if (status==0){
                 List<Neighbourhood_bean.DataBean> data = neighbourhood_bean.getData();
                 dataBeans.addAll(data);
                 neighbourhood_adaper.notifyDataSetChanged();
             }else{
-                Toast.makeText(getActivity(), neighbourhood_bean.getMsg(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),status+"" , Toast.LENGTH_SHORT).show();
             }
         }
     }

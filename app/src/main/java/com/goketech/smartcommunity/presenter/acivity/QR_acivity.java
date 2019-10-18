@@ -27,7 +27,7 @@ import butterknife.BindView;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
-public class QR_acivity extends BaseActivity<Qr_Contracy.View,Qr_Contracy.Presenter> implements Qr_Contracy.View {
+public class QR_acivity extends BaseActivity<Qr_Contracy.View, Qr_Contracy.Presenter> implements Qr_Contracy.View {
 
     @BindView(R.id.iv_qr)
     ImageView ivQr;
@@ -47,21 +47,13 @@ public class QR_acivity extends BaseActivity<Qr_Contracy.View,Qr_Contracy.Presen
 
     @Override
     protected void initView() {
-        EventBus.getDefault().register(this);
 
     }
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void getdata(MessageEvent event){
-        id = event.name;
 
-    }
     @Override
     protected void initData() {
-        Intent intent = getIntent();
-        String house_id = intent.getStringExtra("house_id");
-        if (id==0){
-            Toast.makeText(this, "您没有绑定房屋", Toast.LENGTH_SHORT).show();
-        }else{
+
+        String house_id = String.valueOf(Constant.houre_id);
         Map<String, String> map = new HashMap<>();
         map.put("community_id", "1");
         map.put("house_id", house_id);
@@ -69,12 +61,12 @@ public class QR_acivity extends BaseActivity<Qr_Contracy.View,Qr_Contracy.Presen
         String sign = ASCIIUtils.getSign(map);
         requestBody1 = new FormBody.Builder()
                 .add("community_id", "1")
-                .add("house_id",  house_id+"")
+                .add("house_id", house_id)
                 .add("sign", sign)
                 .build();
         mPresenter.getData_QR(requestBody1);
-        }
     }
+
 
     @Override
     protected void initListener() {
@@ -88,16 +80,19 @@ public class QR_acivity extends BaseActivity<Qr_Contracy.View,Qr_Contracy.Presen
 
     @Override
     public void getdata_QR(QR_bean qr_bean) {
-        if (qr_bean!=null){
+        if (qr_bean != null) {
             int status = qr_bean.getStatus();
-            if (status==0){
+            if (status == 0) {
                 code_str = qr_bean.getData().getCode_str();
-                Log.e("Tav",code_str);
+                Log.e("Tav", code_str);
                 Bitmap mBitmap = QRCodeUtil.createQRCodeBitmap(code_str, 480, 480);
                 ivQr.setImageBitmap(mBitmap);
+            }else{
+                Toast.makeText(QR_acivity.this, qr_bean.getMsg(), Toast.LENGTH_SHORT).show();
             }
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

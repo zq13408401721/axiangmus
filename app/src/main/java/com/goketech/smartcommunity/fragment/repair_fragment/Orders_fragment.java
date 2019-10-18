@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.adaper.Orange_adaper;
 import com.goketech.smartcommunity.adaper.Receiving_adaper;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.All_bean;
 import com.goketech.smartcommunity.interfaces.contract.All_Contracy;
@@ -45,6 +46,7 @@ public class Orders_fragment extends BaseFragment<All_Contracy.View, All_Contrac
     private String community_id;
     private ArrayList<All_bean.DataBean> dataBeans1;
     private Orange_adaper Orange_adaper;
+    private int a;
 
     @Override
     protected All_Contracy.Presenter getPresenter() {
@@ -58,8 +60,7 @@ public class Orders_fragment extends BaseFragment<All_Contracy.View, All_Contrac
 
     @Override
     protected void initFragments() {
-        Intent intent = getActivity().getIntent();
-        community_id = intent.getStringExtra("community_id");
+        a = Constant.house_id;
     }
 
     @Override
@@ -75,13 +76,13 @@ public class Orders_fragment extends BaseFragment<All_Contracy.View, All_Contrac
     @Override
     protected void initData() {
         Map<String, String> map = new HashMap<>();
-        map.put("community_id", community_id);
+        map.put("community_id", a+"");
         map.put("status", "1");
 
         String sign = ASCIIUtils.getSign(map);
         RequestBody requestBody = new FormBody.Builder()
                 .add("status", "1")
-                .add("community_id", community_id)
+                .add("community_id", a+"")
                 .add("sign", sign)
                 .build();
         mPresenter.getData_All(requestBody);
@@ -114,7 +115,11 @@ public class Orders_fragment extends BaseFragment<All_Contracy.View, All_Contrac
                 List<All_bean.DataBean> data = all_bean.getData();
                 dataBeans1.addAll(data);
                 Orange_adaper.notifyDataSetChanged();
-                Toast.makeText(getActivity(),"处理中", Toast.LENGTH_SHORT).show();
+                if (data!=null){
+                    Toast.makeText(getActivity(),"您接收到的订单正在处理中", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(),"您没有要处理的订单", Toast.LENGTH_SHORT).show();
+                }
             }else{
                 Log.i("Tab", String.valueOf(status));
             }
@@ -124,6 +129,8 @@ public class Orders_fragment extends BaseFragment<All_Contracy.View, All_Contrac
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        if (unbinder!=null){
+            unbinder.unbind();
+        }
     }
 }

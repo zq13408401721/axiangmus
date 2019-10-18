@@ -13,6 +13,6 @@ public interface Announcement_Contracy {
         void getdata_Announcement(Announcement_bean announcement_bean);
     }
     interface Presenter extends IBasePresenter<View> {
-        void getData_Announcement(RequestBody body);
+        void getdata_Announcement(RequestBody body);
     }
 }

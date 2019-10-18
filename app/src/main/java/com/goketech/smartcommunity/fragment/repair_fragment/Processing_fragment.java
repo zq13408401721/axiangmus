@@ -1,7 +1,6 @@
 package com.goketech.smartcommunity.fragment.repair_fragment;
 
-import android.content.Context;
-import android.net.Uri;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,9 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.goketech.smartcommunity.R;
+import com.goketech.smartcommunity.base.BaseFragment;
+import com.goketech.smartcommunity.interfaces.IBasePresenter;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Processing_fragment extends BaseFragment {
 
 
-public class Processing_fragment extends Fragment {
+    public Processing_fragment() {
+        // Required empty public constructor
+    }
 
 
     @Override
@@ -19,6 +27,16 @@ public class Processing_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_processing_fragment, container, false);
+    }
+
+    @Override
+    protected IBasePresenter getPresenter() {
+        return null;
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return 0;
     }
 
 }

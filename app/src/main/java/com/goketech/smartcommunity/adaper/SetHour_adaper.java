@@ -47,7 +47,7 @@ public class SetHour_adaper extends RecyclerView.Adapter<SetHour_adaper.ViewHodl
                 house_id = room_list.get(k).getHouse_id();
             }
         }
-        viewHodler.tv_list.setText(bulid_name+name1+room_number1);
+        viewHodler.tv_list.setText(bulid_name);
         viewHodler.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

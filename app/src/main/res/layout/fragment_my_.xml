@@ -13,7 +13,13 @@
         android:layout_height="@dimen/dp_169"
         android:scaleType="centerCrop"
         android:src="@mipmap/toutu" />
-
+    <ImageView
+        android:id="@+id/set"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_18"
+        android:src="@mipmap/shezhi"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_15"/>
     <ImageView
         android:id="@+id/head"
         android:layout_width="@dimen/dp_72"
@@ -70,18 +76,11 @@
             android:layout_width="@dimen/dp_23"
             android:layout_height="@dimen/dp_25"
             android:layout_below="@id/xian"
-            android:layout_marginLeft="@dimen/dp_63"
+            android:layout_marginLeft="@dimen/dp_91"
             android:layout_toRightOf="@id/processing"
             android:src="@mipmap/chulizhong" />
 
-        <ImageView
-            android:id="@+id/payment"
-            android:layout_width="@dimen/dp_23"
-            android:layout_height="@dimen/dp_25"
-            android:layout_below="@id/xian"
-            android:layout_marginLeft="@dimen/dp_59"
-            android:layout_toRightOf="@id/orders"
-            android:src="@mipmap/daifukuan" />
+
 
         <ImageView
 
@@ -89,8 +88,8 @@
             android:layout_width="@dimen/dp_23"
             android:layout_height="@dimen/dp_25"
             android:layout_below="@id/xian"
-            android:layout_marginLeft="@dimen/dp_59"
-            android:layout_toRightOf="@id/payment"
+            android:layout_marginLeft="@dimen/dp_91"
+            android:layout_toRightOf="@id/orders"
             android:src="@mipmap/daipingjia" />
 
         <TextView
@@ -108,20 +107,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/processing"
-            android:layout_marginLeft="@dimen/dp_50"
+            android:layout_marginLeft="@dimen/dp_78"
             android:layout_toRightOf="@id/jiedan"
             android:text="@string/chulizhong"
-            android:textColor="@color/grey"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/daifu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/processing"
-            android:layout_marginLeft="@dimen/dp_46"
-            android:layout_toRightOf="@id/chuli"
-            android:text="@string/daifukuan"
             android:textColor="@color/grey"
             android:textSize="12sp" />
 
@@ -130,8 +118,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/processing"
-            android:layout_marginLeft="@dimen/dp_48"
-            android:layout_toRightOf="@id/daifu"
+            android:layout_marginLeft="@dimen/dp_80"
+            android:layout_toRightOf="@id/orders"
             android:text="@string/daipingjia"
             android:textColor="@color/grey"
             android:textSize="12sp" />

@@ -123,12 +123,11 @@ public class Landing_Fragment extends BaseFragment<Landing_Contracy.View,Landing
                 Constant.token = landing_bean.getData().getToken();
                 houses = landing_bean.getData().getHouses();
                 for (int i = 0; i < houses.size(); i++) {
-                    house_id = houses.get(i).getHouse_id();
+                    Constant.houre_id = houses.get(i).getHouse_id();
 
                 }
                 Toast.makeText(getActivity(), "登陆成功", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
-                intent.putExtra("house_id",house_id);
                 startActivity(intent);
 
             }else if (status==1002) {

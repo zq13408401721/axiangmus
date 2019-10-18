@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goketech.smartcommunity.R;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.bean.Repairs_bean;
@@ -20,6 +21,7 @@ import com.goketech.smartcommunity.interfaces.contract.Repair_contracy;
 import com.goketech.smartcommunity.presenter.Repairs_presenter;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +69,7 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
     private CharSequence recording;
     private int id1;
     private List<Commonality_bean.DataBean.RepairBean> repair;
+    private String name;
 
     @Override
     protected Repair_contracy.Presenter getPresenter() {
@@ -96,6 +99,12 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
                 finish();
             }
         });
+       List<Commonality_bean.DataBean.RepairBean> list = new ArrayList<>();
+        list=Constant.list;
+        for (int i = 0; i < list.size(); i++) {
+            name = list.get(i).getName();
+            tl.addTab(tl.newTab().setText(name));
+        }
         tl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

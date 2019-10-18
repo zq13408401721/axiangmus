@@ -83,6 +83,7 @@
                 android:layout_marginLeft="@dimen/dp_50"
                 android:src="@mipmap/baoxiu"/>
             <ImageView
+                android:id="@+id/visitor"
                 android:layout_width="23dp"
                 android:scaleType="fitXY"
                 android:layout_marginLeft="@dimen/dp_50"

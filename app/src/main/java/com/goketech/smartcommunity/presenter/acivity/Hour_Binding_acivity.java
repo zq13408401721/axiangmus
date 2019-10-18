@@ -1,7 +1,5 @@
 package com.goketech.smartcommunity.presenter.acivity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +20,8 @@ import android.widget.Toast;
 
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.adaper.SetHour_adaper;
+import com.goketech.smartcommunity.adaper.Setelementt_adaper;
+import com.goketech.smartcommunity.adaper.Setroom_adaper;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Binding_bean;
 import com.goketech.smartcommunity.bean.SetHour_bean;
@@ -66,6 +66,16 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
     TextView louyu;
     @BindView(R.id.bt_tijiao)
     Button btTijiao;
+    @BindView(R.id.xian5)
+    TextView xian5;
+    @BindView(R.id.xian2)
+    TextView xian2;
+    @BindView(R.id.danyuan)
+    TextView danyuan;
+    @BindView(R.id.xian3)
+    TextView xian3;
+    @BindView(R.id.fangjian)
+    TextView fangjian;
     private ArrayList<SetHour_bean.DataBean> dataBeans;
     private SetHour_adaper setHour_adaper;
     private RecyclerView rl_list;
@@ -91,10 +101,6 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
     @Override
     protected void initData() {
 
-
-        String name = etName.getText().toString();
-        String phone = etPhone.getText().toString();
-        select.setText("物主");
         louyu.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -140,7 +146,7 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
                     @Override
                     public void AddHour(int p, String bulid_name, String name1, String room_number1, int id) {
                         ids = id + "";
-                        louyu.setText(bulid_name+name1+room_number1);
+                        louyu.setText(bulid_name);
                         popupWindow.dismiss();
                         WindowManager.LayoutParams lp = getWindow().getAttributes();
                         lp.alpha = 1f;
@@ -148,6 +154,172 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
                     }
                 });
 
+            }
+        });
+        danyuan.setOnClickListener(new View.OnClickListener() {
+
+            private Setelementt_adaper setelementt_adaper;
+
+            @Override
+            public void onClick(View v) {
+                //1.new 对象
+                //2.指定三要素
+                //3.显示
+                final PopupWindow popupWindow = new PopupWindow();
+                //必须给定三要素: 视图(view),宽,高
+                //view
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getWindow().setAttributes(lp);
+
+                View inflate = LayoutInflater.from(Hour_Binding_acivity.this).inflate(R.layout.popupwindow, null, false);
+                popupWindow.setContentView(inflate);
+                //宽
+                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                //高
+                popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+
+                View inflate1 = LayoutInflater.from(Hour_Binding_acivity.this).inflate(R.layout.fragment_home_, null, false);
+                popupWindow.showAtLocation(inflate1, Gravity.CENTER, 0, 0);
+                ImageView pop_img = inflate.findViewById(R.id.pop_img);
+                pop_img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
+                rl_list = inflate.findViewById(R.id.rl_list);
+                dataBeans = new ArrayList<>();
+                setelementt_adaper = new Setelementt_adaper(dataBeans,Hour_Binding_acivity.this);
+                rl_list.setAdapter(setelementt_adaper);
+                linearLayoutManager = new LinearLayoutManager(Hour_Binding_acivity.this);
+                rl_list.setLayoutManager(linearLayoutManager);
+                dataBeans.addAll(data);
+                setelementt_adaper.notifyDataSetChanged();
+                setelementt_adaper.setSetelement(new Setelementt_adaper.Setelement() {
+                    @Override
+                    public void Setelement(int p, String bulid_name, String name1, String room_number1, int id) {
+                        ids = id + "";
+                        danyuan.setText(name1+"");
+                        Log.i("name",name1);
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
+            }
+        });
+        fangjian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //1.new 对象
+                //2.指定三要素
+                //3.显示
+                final PopupWindow popupWindow = new PopupWindow();
+                //必须给定三要素: 视图(view),宽,高
+                //view
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getWindow().setAttributes(lp);
+
+                View inflate = LayoutInflater.from(Hour_Binding_acivity.this).inflate(R.layout.popupwindow, null, false);
+                popupWindow.setContentView(inflate);
+                //宽
+                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                //高
+                popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+
+                View inflate1 = LayoutInflater.from(Hour_Binding_acivity.this).inflate(R.layout.fragment_home_, null, false);
+                popupWindow.showAtLocation(inflate1, Gravity.CENTER, 0, 0);
+                ImageView pop_img = inflate.findViewById(R.id.pop_img);
+                pop_img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
+                rl_list = inflate.findViewById(R.id.rl_list);
+                dataBeans = new ArrayList<>();
+                Setroom_adaper setroom_adaper = new Setroom_adaper(dataBeans, Hour_Binding_acivity.this);
+                rl_list.setAdapter(setroom_adaper);
+                linearLayoutManager = new LinearLayoutManager(Hour_Binding_acivity.this);
+                rl_list.setLayoutManager(linearLayoutManager);
+                dataBeans.addAll(data);
+                setroom_adaper.notifyDataSetChanged();
+                setroom_adaper.setSetroom(new Setroom_adaper.Setroom() {
+                    @Override
+                    public void Setroom(int p, String bulid_name, String name1, String room_number1, int id) {
+                        ids = id + "";
+                        fangjian.setText(room_number1);
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
+            }
+        });
+        danyuan.setOnClickListener(new View.OnClickListener() {
+
+            private Setelementt_adaper setelementt_adaper;
+
+            @Override
+            public void onClick(View v) {
+                //1.new 对象
+                //2.指定三要素
+                //3.显示
+                final PopupWindow popupWindow = new PopupWindow();
+                //必须给定三要素: 视图(view),宽,高
+                //view
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getWindow().setAttributes(lp);
+
+                View inflate = LayoutInflater.from(Hour_Binding_acivity.this).inflate(R.layout.popupwindow, null, false);
+                popupWindow.setContentView(inflate);
+                //宽
+                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                //高
+                popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+
+                View inflate1 = LayoutInflater.from(Hour_Binding_acivity.this).inflate(R.layout.fragment_home_, null, false);
+                popupWindow.showAtLocation(inflate1, Gravity.CENTER, 0, 0);
+                ImageView pop_img = inflate.findViewById(R.id.pop_img);
+                pop_img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
+                rl_list = inflate.findViewById(R.id.rl_list);
+                dataBeans = new ArrayList<>();
+                setelementt_adaper = new Setelementt_adaper(dataBeans,Hour_Binding_acivity.this);
+                rl_list.setAdapter(setelementt_adaper);
+                linearLayoutManager = new LinearLayoutManager(Hour_Binding_acivity.this);
+                rl_list.setLayoutManager(linearLayoutManager);
+                dataBeans.addAll(data);
+                setelementt_adaper.notifyDataSetChanged();
+                setelementt_adaper.setSetelement(new Setelementt_adaper.Setelement() {
+                    @Override
+                    public void Setelement(int p, String bulid_name, String name1, String room_number1, int id) {
+                        ids = id + "";
+                        danyuan.setText(name1);
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getWindow().setAttributes(lp);
+                    }
+                });
             }
         });
         Map<String, String> map = new HashMap<>();
@@ -172,7 +344,7 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
             }
         });
 
-        select.setOnClickListener(new View.OnClickListener() {
+      /*  select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String[] items3 = new String[]{"住户", "业主"};//创建item
@@ -186,26 +358,25 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
                         }).create();
                     dialog.show();
             }
-        });
+        });*/
+        select.setText("住户");
         btTijiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String wu = select.getText().toString();
                 String name = etName.getText().toString();
                 String phone = etPhone.getText().toString();
-                if (wu.equals("住户")){
-                    wu="0";
-                }else{
-                    wu="1";
+                if (wu.equals("住户")) {
+                    wu = "0";
                 }
                 Map<String, String> map = new HashMap<>();
 
-                map.put("phone", phone+"");
+                map.put("phone", phone + "");
                 map.put("real_name", name);
-                map.put("house_id", ids+"");
-                map.put("is_owner", wu+"");
+                map.put("house_id", ids + "");
+                map.put("is_owner", wu + "");
                 map.put("community_id", "1");
-
+                Log.i("sign",phone+""+name+ids+""+wu+"");
                 String sign = ASCIIUtils.getSign(map);
 
                 RequestBody requestBody = new FormBody.Builder()
@@ -224,24 +395,24 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
 
     @Override
     public void getdata_Binding(Binding_bean binding_bean) {
-            if (binding_bean!=null){
-                int status = binding_bean.getStatus();
-                if (status==0) {
-                    Toast.makeText(Hour_Binding_acivity.this, "绑定成功", Toast.LENGTH_SHORT).show();
-                }else if (status==1100) {
-                    Toast.makeText(Hour_Binding_acivity.this, "房屋不存在", Toast.LENGTH_SHORT).show();
-                }else if (status==1101) {
-                    Toast.makeText(Hour_Binding_acivity.this, "已存在业主，请检查重新绑定", Toast.LENGTH_SHORT).show();
-                }else if (status==1102) {
-                    Toast.makeText(Hour_Binding_acivity.this, "手机号与房屋不匹配", Toast.LENGTH_SHORT).show();
-                }else if (status==1103) {
-                    Toast.makeText(Hour_Binding_acivity.this, "真实姓名与房屋不匹配", Toast.LENGTH_SHORT).show();
-                }else if (status==1104){
-                    Toast.makeText(Hour_Binding_acivity.this, "您已经绑定过该房屋", Toast.LENGTH_SHORT).show();
-                }else{
-                    Log.e("Tab",status+"");
-                }
+        if (binding_bean != null) {
+            int status = binding_bean.getStatus();
+            if (status == 0) {
+                Toast.makeText(Hour_Binding_acivity.this, "绑定成功", Toast.LENGTH_SHORT).show();
+            } else if (status == 1100) {
+                Toast.makeText(Hour_Binding_acivity.this, "房屋不存在", Toast.LENGTH_SHORT).show();
+            } else if (status == 1101) {
+                Toast.makeText(Hour_Binding_acivity.this, "已存在业主，请检查重新绑定", Toast.LENGTH_SHORT).show();
+            } else if (status == 1102) {
+                Toast.makeText(Hour_Binding_acivity.this, "手机号与房屋不匹配", Toast.LENGTH_SHORT).show();
+            } else if (status == 1103) {
+                Toast.makeText(Hour_Binding_acivity.this, "真实姓名与房屋不匹配", Toast.LENGTH_SHORT).show();
+            } else if (status == 1104) {
+                Toast.makeText(Hour_Binding_acivity.this, "您已经绑定过该房屋", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e("Tab", status + "");
             }
+        }
     }
 
     @Override

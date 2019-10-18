@@ -1,8 +1,11 @@
 package com.goketech.smartcommunity.adaper;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,7 @@ import java.util.List;
 public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.ViewHodler> {
     private ArrayList<Acivity_Web_bean.DataBean> AcivityWeb;
     private Context context;
+    private String avatar;
 
     public AcivityWeb_adaper(ArrayList<Acivity_Web_bean.DataBean> acivityWeb, Context context) {
         AcivityWeb = acivityWeb;
@@ -41,9 +45,11 @@ public class AcivityWeb_adaper extends RecyclerView.Adapter<AcivityWeb_adaper.Vi
         Glide.with(context).load(dataBean.getImage()).into(viewHodler.iv);
         viewHodler.textView.setText(dataBean.getTitle());
         for (int j = 0; j < AcivityWeb.size(); j++) {
-            String avatar = AcivityWeb.get(j).getAvatar();
-            Glide.with(context).load(avatar).into(viewHodler.iv_biao);
+            avatar = AcivityWeb.get(j).getAvatar();
         }
+        byte[] bitmapArray = Base64.decode(avatar, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0,bitmapArray.length);
+        viewHodler.iv_biao.setImageBitmap(bitmap);
         viewHodler.tv_faqi.setText(dataBean.getNick()+"");
         viewHodler.tv_establish.setText(dataBean.getBegin_time());
         viewHodler.remark.setText(dataBean.getRemark());
