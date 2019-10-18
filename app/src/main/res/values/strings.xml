@@ -36,5 +36,8 @@
     <string name="daipingjia">待评价</string>
     <string name="yuyue">预约时间</string>
     <string name="yuyueshijian">预约时间段</string>
+    <string name="fanzghidiushi">防止账号丢失请绑定手机号</string>
+    <string name="huoquyanzhengma">获取验证码</string>
+
     <string name="title2">为了保障社区内的住户享受高品质服务，请提供真是的信息以提供物业中心进行验证</string>
 </resources>
