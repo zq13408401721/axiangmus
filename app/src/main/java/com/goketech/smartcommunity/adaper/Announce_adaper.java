@@ -43,10 +43,11 @@ public class Announce_adaper extends RecyclerView.Adapter<Announce_adaper.ViewHo
         }else if (status==2){
             viewHodler.tv_jieqing.setText("已支付");
         }
+
         viewHodler.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setfei.Setfei(viewHodler.RL_dianji,i,viewHodler.tv_jieqing);
+                //setfei.Setfei(viewHodler.RL_dianji,i,viewHodler.tv_jieqing);
             }
         });
     }

@@ -44,8 +44,7 @@ import okhttp3.RequestBody;
 public class Landing_acivity extends BaseActivity<WeiCode_Conreacy.View, WeiCode_Conreacy.Presenter> implements WeiCode_Conreacy.View {
 
 
-    @BindView(R.id.color)
-    Toolbar mColor;
+
     @BindView(R.id.background)
     ImageView mBackground;
     @BindView(R.id.fl_landing)

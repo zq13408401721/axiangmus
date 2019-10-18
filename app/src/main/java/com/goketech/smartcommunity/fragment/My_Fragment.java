@@ -9,16 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.goketech.smartcommunity.R;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.My_bean;
 import com.goketech.smartcommunity.interfaces.contract.My_Contracy;
 import com.goketech.smartcommunity.presenter.My_Preserter;
+import com.goketech.smartcommunity.presenter.acivity.My_Acivity;
 import com.goketech.smartcommunity.presenter.acivity.My_house;
 import com.goketech.smartcommunity.presenter.acivity.Repair_list_acivity;
+import com.goketech.smartcommunity.presenter.acivity.Setting_acivity;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
 import java.util.HashMap;
@@ -46,16 +47,14 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
     ImageView processing;
     @BindView(R.id.orders)
     ImageView orders;
-    @BindView(R.id.payment)
-    ImageView payment;
+
     @BindView(R.id.evaluation)
     ImageView evaluation;
     @BindView(R.id.jiedan)
     TextView jiedan;
     @BindView(R.id.chuli)
     TextView chuli;
-    @BindView(R.id.daifu)
-    TextView daifu;
+
     @BindView(R.id.evaluate)
     TextView evaluate;
     @BindView(R.id.rl)
@@ -103,7 +102,10 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
     TextView tvName;
     @BindView(R.id.louhao)
     TextView louhao;
-    private String android_code = "a01973b3-38a2-4260-8caa-00c4b53e6d86";
+    @BindView(R.id.set)
+    ImageView set;
+    Unbinder unbinder1;
+
     private String address;
     private String end_time;
     private int id;
@@ -127,6 +129,13 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
 
     @Override
     protected void initListener() {
+        set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Setting_acivity.class);
+                startActivity(intent);
+            }
+        });
         jilu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +152,8 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
         geng1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getActivity(), My_Acivity.class);
+                startActivity(intent);
             }
         });
 
@@ -151,26 +161,25 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
         orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Constant.id="2";
                 Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
-                intent.putExtra("id","2");
                 startActivity(intent);
+
             }
         });
-        //待付款
-        payment.setOnClickListener(new View.OnClickListener() {
+        //待接单
+        processing.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < house_list.size(); i++) {
+                    Constant.house_id = house_list.get(i).getHouse_id();
+                    Constant.is_call = house_list.get(i).getIs_call();
+                    Constant.type = house_list.get(i).getType();
+                }
+
+                Constant.id="1";
                 Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
-                intent.putExtra("id","3");
-                startActivity(intent);
-            }
-        });
-        //待评价
-        evaluation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
-                intent.putExtra("id","4");
                 startActivity(intent);
             }
         });
@@ -208,39 +217,26 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
                     String floor = house_list.get(i).getFloor();
                     String unit = house_list.get(i).getUnit();
                     tvName.setText(community);
-                    louhao.setText(bulid+"号楼"+unit+"单元"+floor+room);
+                    louhao.setText(bulid + "号楼" + unit + "单元" + floor + room);
+                 Constant.community_ids =house_list.get(i).getCommunity_id();
 
                 }
-                //待接单
-                processing.setOnClickListener(new View.OnClickListener() {
-                    private int community_id;
-                    @Override
-                    public void onClick(View v) {
-                        for (int i = 0; i < house_list.size(); i++) {
-                            community_id = house_list.get(i).getCommunity_id();
-                        }
 
-                        Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
-                        intent.putExtra("id","1");
-                        intent.putExtra("community_id",community_id+"");
-                        startActivity(intent);
-                    }
-                });
                 for (int i = 0; i < activity_list.size(); i++) {
                     String title = activity_list.get(i).getTitle();
                     String address = activity_list.get(i).getAddress();
                     int total_apply = activity_list.get(i).getTotal_apply();
                     String end_time = activity_list.get(i).getEnd_time();
-                    Log.e("Tab",title);
                     shidai.setText(title);
                     time.setText(end_time);
                     jie.setText(end_time);
                     dizhi.setText(address);
-                    nums.setText(total_apply+"");
+                    nums.setText(total_apply + "");
                 }
-                }
+            }
         }
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

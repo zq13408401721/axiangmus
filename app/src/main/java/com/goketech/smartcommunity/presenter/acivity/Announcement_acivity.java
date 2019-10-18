@@ -37,8 +37,7 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
     RecyclerView rl;
     private ArrayList<Announcement_bean.DataBean> dataBeans;
     private Announce_adaper announce_adaper;
-    private List<Announcement_bean.DataBean> data;
-    private String tv;
+
     @Override
     protected Announcement_Contracy.Presenter getPresenter() {
         return new Announcement_Presenter();
@@ -61,7 +60,7 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
         RequestBody requestBody = new FormBody.Builder()
                 .add("sign", sign)
                 .build();
-        mPresenter.getData_Announcement(requestBody);
+        mPresenter.getdata_Announcement(requestBody);
     }
 
     @Override
@@ -82,7 +81,7 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
                 finish();
             }
         });
-        announce_adaper.setSetfei(new Announce_adaper.Setfei() {
+        /*announce_adaper.setSetfei(new Announce_adaper.Setfei() {
             @Override
             public void Setfei(RelativeLayout RL_dianji, final int p, final TextView tv_ji) {
                 RL_dianji.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +96,7 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
                     }
                 });
             }
-        });
+        });*/
     }
 
     @Override
@@ -105,12 +104,12 @@ public class Announcement_acivity extends BaseActivity<Announcement_Contracy.Vie
         if(announcement_bean!=null){
             int status = announcement_bean.getStatus();
             if (status==0){
-                data = announcement_bean.getData();
+                List<Announcement_bean.DataBean> data = announcement_bean.getData();
                 dataBeans.addAll(data);
                 Toast.makeText(Announcement_acivity.this, "查看账单", Toast.LENGTH_SHORT).show();
                 announce_adaper.notifyDataSetChanged();
             }else{
-                Toast.makeText(Announcement_acivity.this, status+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Announcement_acivity.this, announcement_bean.getMsg(), Toast.LENGTH_SHORT).show();
             }
         }
     }

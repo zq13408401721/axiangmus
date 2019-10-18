@@ -1,17 +1,17 @@
 package com.goketech.smartcommunity.interfaces.contract;
 
-import com.goketech.smartcommunity.bean.Acivity_Web_bean;
-import com.goketech.smartcommunity.bean.Commonality_bean;
+import com.goketech.smartcommunity.bean.MyAcivity_bean;
+import com.goketech.smartcommunity.bean.My_bean;
 import com.goketech.smartcommunity.interfaces.IBasePresenter;
 import com.goketech.smartcommunity.interfaces.IBaseView;
 
 import okhttp3.RequestBody;
 
-public interface Commonality_Contract {
+public interface MyAcivity_Contracy {
     interface View extends IBaseView {
-        void getdata_Commonality(Commonality_bean commonality_bean);
+        void getdata_MyAcivity(MyAcivity_bean myAcivity_bean);
     }
     interface Presenter extends IBasePresenter<View> {
-        void getData_Commonality(RequestBody body);
+        void getData_MyAcivity(RequestBody body);
     }
 }

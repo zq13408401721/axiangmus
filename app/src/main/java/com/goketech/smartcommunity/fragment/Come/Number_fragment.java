@@ -1,4 +1,4 @@
-package com.goketech.smartcommunity.fragment.repair_fragment;
+package com.goketech.smartcommunity.fragment.Come;
 
 
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import com.goketech.smartcommunity.interfaces.IBasePresenter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Processing_fragment extends BaseFragment {
+public class Number_fragment extends BaseFragment {
 
 
-    public Processing_fragment() {
+    public Number_fragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class Processing_fragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_processing_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_number_fragment, container, false);
     }
 
     @Override

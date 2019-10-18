@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.adaper.Receiving_adaper;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.All_bean;
 import com.goketech.smartcommunity.interfaces.contract.All_Contracy;
@@ -38,6 +39,7 @@ public class Evaluation_frahment extends BaseFragment<All_Contracy.View, All_Con
     private String community_id;
     private ArrayList<All_bean.DataBean> dataBeans1;
     private Receiving_adaper receiving_adaper;
+    private int a;
 
     @Override
     protected All_Contracy.Presenter getPresenter() {
@@ -51,8 +53,7 @@ public class Evaluation_frahment extends BaseFragment<All_Contracy.View, All_Con
 
     @Override
     protected void initFragments() {
-        Intent intent = getActivity().getIntent();
-        community_id = intent.getStringExtra("community_id");
+        a = Constant.house_id;
     }
 
     @Override
@@ -68,14 +69,15 @@ public class Evaluation_frahment extends BaseFragment<All_Contracy.View, All_Con
 
     @Override
     protected void initData() {
+
         Map<String, String> map = new HashMap<>();
-        map.put("community_id", community_id);
+        map.put("community_id", String.valueOf(a));
         map.put("status", "0");
 
         String sign = ASCIIUtils.getSign(map);
         RequestBody requestBody = new FormBody.Builder()
                 .add("status", "0")
-                .add("community_id", community_id)
+                .add("community_id", String.valueOf(a))
                 .add("sign", sign)
                 .build();
         mPresenter.getData_All(requestBody);
@@ -94,13 +96,19 @@ public class Evaluation_frahment extends BaseFragment<All_Contracy.View, All_Con
                 List<All_bean.DataBean> data = all_bean.getData();
                 dataBeans1.addAll(data);
                 receiving_adaper.notifyDataSetChanged();
-                Toast.makeText(getActivity(), "待接单", Toast.LENGTH_SHORT).show();
+                if (data==null){
+                    Toast.makeText(getActivity(), "您暂时没有接单", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), "您的订单列表", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        if (unbinder!=null){
+            unbinder.unbind();
+        }
     }
 }

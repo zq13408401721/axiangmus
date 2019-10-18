@@ -25,16 +25,12 @@ import com.goketech.smartcommunity.interfaces.contract.AcivityWeb_Contracy;
 import com.goketech.smartcommunity.presenter.AcivityWeb_Presenter;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 

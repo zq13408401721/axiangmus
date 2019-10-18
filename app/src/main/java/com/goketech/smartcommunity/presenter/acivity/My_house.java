@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.adaper.My_Houre_adaper;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseActivity;
+import com.goketech.smartcommunity.bean.Delete_bean;
 import com.goketech.smartcommunity.bean.MyHoure_bean;
 import com.goketech.smartcommunity.interfaces.contract.MyHour_Contracy;
 import com.goketech.smartcommunity.presenter.MyAcivity_Presenter;
@@ -62,6 +64,13 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(My_house.this);
         rl.setLayoutManager(linearLayoutManager);
         my_houre_adaper.notifyDataSetChanged();
+        my_houre_adaper.setMy_setfei(new My_Houre_adaper.My_Setfei() {
+            @Override
+            public void my_setfei(int p) {
+                Intent intent = new Intent(My_house.this,Administrator_acivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -70,7 +79,6 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
 
         String sign = ASCIIUtils.getSign(map);
         RequestBody requestBody = new FormBody.Builder()
-
                 .add("sign", sign)
                 .build();
         mPresenter.getData_My(requestBody);
@@ -99,14 +107,28 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
             int status = myAcivity_bean.getStatus();
             if (status == 0) {
                 List<MyHoure_bean.DataBean> data = myAcivity_bean.getData();
+                for (int i = 0; i < data.size(); i++) {
+                  Constant.community_id= data.get(i).getCommunity_id();
+                    List<MyHoure_bean.DataBean.UsersBean> users = data.get(i).getUsers();
+                    for (int j = 0; j < users.size(); j++) {
+                        Constant.idb=users.get(j).getId();
+
+                    }
+                }
                 dataBeans.addAll(data);
                 Toast.makeText(My_house.this, data + "", Toast.LENGTH_SHORT).show();
                 my_houre_adaper.notifyDataSetChanged();
                 Toast.makeText(My_house.this, "您的房屋列表", Toast.LENGTH_SHORT).show();
+
             } else {
                 Toast.makeText(My_house.this, myAcivity_bean.getMsg(), Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void getdata_delete(Delete_bean delete_bean) {
+
     }
 
     @Override

@@ -1,18 +1,17 @@
 package com.goketech.smartcommunity.interfaces.contract;
 
-import com.goketech.smartcommunity.bean.Announce_bean;
-import com.goketech.smartcommunity.bean.Announcement_bean;
 import com.goketech.smartcommunity.bean.Commonality_bean;
+import com.goketech.smartcommunity.bean.Feedback_bean;
 import com.goketech.smartcommunity.interfaces.IBasePresenter;
 import com.goketech.smartcommunity.interfaces.IBaseView;
 
 import okhttp3.RequestBody;
 
-public interface Announcement_Contracy {
+public interface Feedback_Contracy {
     interface View extends IBaseView {
-        void getdata_Announcement(Announcement_bean announcement_bean);
+        void getdata_Feedback(Feedback_bean feedback_bean);
     }
     interface Presenter extends IBasePresenter<View> {
-        void getdata_Announcement(RequestBody body);
+        void getData_Feedback(RequestBody body);
     }
 }
