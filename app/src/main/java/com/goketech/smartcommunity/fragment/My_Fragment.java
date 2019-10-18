@@ -45,16 +45,14 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
     ImageView processing;
     @BindView(R.id.orders)
     ImageView orders;
-    @BindView(R.id.payment)
-    ImageView payment;
+
     @BindView(R.id.evaluation)
     ImageView evaluation;
     @BindView(R.id.jiedan)
     TextView jiedan;
     @BindView(R.id.chuli)
     TextView chuli;
-    @BindView(R.id.daifu)
-    TextView daifu;
+
     @BindView(R.id.evaluate)
     TextView evaluate;
     @BindView(R.id.rl)
@@ -143,6 +141,30 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
             }
         });
 
+        //待接单
+        processing.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < house_list.size(); i++) {
+                    Constant.house_id = house_list.get(i).getHouse_id();
+                    Constant.is_call = house_list.get(i).getIs_call();
+                    Constant.type = house_list.get(i).getType();
+                }
+
+                Constant.id="1";
+                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                startActivity(intent);
+            }
+        });
+        evaluation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Constant.id="3";
+                Intent intent = new Intent(getActivity(), Repair_list_acivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -207,6 +229,7 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
 
         }
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

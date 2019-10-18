@@ -28,6 +28,7 @@
         android:id="@+id/bindphone_tvmsg"
         android:textSize="@dimen/sp_15"
         android:text=""
+        android:text="@string/fanzghidiushi"
         app:layout_constraintTop_toBottomOf="@id/bindphone_tv"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="@dimen/dp_57"
@@ -63,6 +64,7 @@
        android:layout_marginLeft="@dimen/dp_247"
         android:textSize="@dimen/sp_15"
         android:text="获取验证码"
+        android:text="@string/huoquyanzhengma"
         android:textColor="#00837B"
         android:id="@+id/bindphone_getcode"
 
