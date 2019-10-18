@@ -1,5 +1,7 @@
 package com.goketech.smartcommunity.app;
 
+import com.goketech.smartcommunity.bean.Landing_bean;
+
 import java.io.File;
 
 public class Constant {
@@ -12,6 +14,7 @@ public class Constant {
     public static final String PATH_CACHE = PATH_DATA + "/ShiXun";
 
     public static String token = "";
+
 
 
 }
