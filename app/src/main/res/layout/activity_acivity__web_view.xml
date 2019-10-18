@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presenter.acivity.Start_acivity">
-    <ImageView
-        android:id="@+id/iv_start"
+    tools:context=".presenter.acivity.Acivity_WebView_acivity">
+    <WebView
+        android:id="@+id/wb"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/qidongye"/>
+        android:layout_height="match_parent"></WebView>
 </RelativeLayout>

@@ -5,31 +5,23 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.fragment.Activity_Fragment;
 import com.goketech.smartcommunity.fragment.Home_Fragment;
 import com.goketech.smartcommunity.fragment.My_Fragment;
-import com.goketech.smartcommunity.fragment.Neighborhood_Fragment;
-import com.goketech.smartcommunity.interfaces.contract.Dect_Contract;
-import com.goketech.smartcommunity.presenter.Dect_presenter;
+import com.goketech.smartcommunity.interfaces.contract.Commonality_Contract;
+import com.goketech.smartcommunity.presenter.Commonality_presenter;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -37,7 +29,7 @@ import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
 
-public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.Presenter> implements Dect_Contract.View{
+public class MainActivity extends BaseActivity<Commonality_Contract.View,Commonality_Contract.Presenter> implements Commonality_Contract.View {
 
 
     @BindView(R.id.tl)
@@ -46,8 +38,7 @@ public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.
     FrameLayout mFl;
     private FragmentManager manager;
     private String house_id;
-    private String[] titles = {"首页","邻里","活动","我的"};
-    private int[] icons = {R.drawable.home,R.drawable.linli,R.drawable.huodong,R.drawable.mine};
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -56,26 +47,15 @@ public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.
     @Override
     protected void initFragments() {
         manager = getSupportFragmentManager();
-        /*mTl.addTab(mTl.newTab().setText().setCustomView(R.drawable.home));
-        mTl.addTab(mTl.newTab().setText().setIcon(R.mipmap.linli));
-        mTl.addTab(mTl.newTab().setText().setIcon(R.mipmap.huodong));
-        mTl.addTab(mTl.newTab().setText().setIcon(R.mipmap.wode));*/
-        for (int i = 0; i <4 ; i++) {
-           mTl.addTab(mTl.newTab().setCustomView(getView(i)));
-        }
-        mTl.setSelectedTabIndicatorColor(Color.TRANSPARENT);
+        mTl.addTab(mTl.newTab().setText("首页").setIcon(R.mipmap.shouye));
+        mTl.addTab(mTl.newTab().setText("邻里").setIcon(R.mipmap.linli));
+        mTl.addTab(mTl.newTab().setText("活动").setIcon(R.mipmap.huodong));
+        mTl.addTab(mTl.newTab().setText("我的").setIcon(R.mipmap.wode));
     }
-    public View getView(int i){
-        View view = LayoutInflater.from(this).inflate(R.layout.tablayout_customview, null);
-        ImageView customview_iv = view.findViewById(R.id.customview_iv);
-        TextView customview_tv = view.findViewById(R.id.customview_tv);
-        customview_iv.setBackgroundResource(icons[i]);
-        customview_tv.setText(titles[i]);
-        return view;
-    }
+
     @Override
-    protected Dect_Contract.Presenter getPresenter() {
-        return new Dect_presenter();
+    protected Commonality_Contract.Presenter getPresenter() {
+        return new Commonality_presenter();
     }
 
     @Override
@@ -83,20 +63,17 @@ public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.
 
         Intent intent = getIntent();
         house_id = intent.getStringExtra("house_id");
+
         addFragment(getSupportFragmentManager(), Home_Fragment.class, R.id.fl, null);
 
+
     }
+
 
     @Override
     protected void initData() {
 
-        Map<String, String> map = new HashMap<>();
 
-        String sign = ASCIIUtils.getSign(map);
-        RequestBody requestBody = new FormBody.Builder()
-                .add("sign", sign)
-                .build();
-        mPresenter.getData_Commonality(requestBody);
     }
 
     @Override
@@ -105,10 +82,13 @@ public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.
         mTl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
+
                 int position = tab.getPosition();
                 if (position == 0) {
-
-                    addFragment(manager, Home_Fragment.class, R.id.fl, null);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("house_id",house_id);
+                    addFragment(manager, Home_Fragment.class, R.id.fl, bundle);
                 } else if (position == 1) {
                     addFragment(manager, Neighborhood_Fragment.class, R.id.fl, null);
                 } else if (position == 2) {
@@ -128,11 +108,57 @@ public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.
 
             }
         });
+        Map<String, String> maps = new HashMap<>();
+        maps.put("1","1");
+        String signs = ASCIIUtils.getSign(maps);
+
+        RequestBody requestBodys = new FormBody.Builder()
+                .add("sign", signs)
+                .build();
+        mPresenter.getData_Commonality(requestBodys);
     }
 
     @Override
     public void showError(String errorMsg) {
 
+    }
+    public String getSignMd5Str() {
+        try {
+            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+            android.content.pm.Signature[] signs = packageInfo.signatures;
+            Signature sign = signs[0];
+            String signStr = encryptionMD5(sign.toByteArray());
+            return signStr;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     * MD5加密
+     * @param byteStr 需要加密的内容
+     * @return 返回 byteStr的md5值
+     */
+    public static String encryptionMD5(byte[] byteStr) {
+        MessageDigest messageDigest = null;
+        StringBuffer md5StrBuff = new StringBuffer();
+        try {
+            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            messageDigest.update(byteStr);
+            byte[] byteArray = messageDigest.digest();
+            for (int i = 0; i < byteArray.length; i++) {
+                if (Integer.toHexString(0xFF & byteArray[i]).length() == 1) {
+                    md5StrBuff.append("0").append(Integer.toHexString(0xFF & byteArray[i]));
+                } else {
+                    md5StrBuff.append(Integer.toHexString(0xFF & byteArray[i]));
+                }
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return md5StrBuff.toString();
     }
 
     @Override
@@ -140,17 +166,11 @@ public class MainActivity extends BaseActivity<Dect_Contract.View,Dect_Contract.
         if (commonality_bean!=null){
             int status = commonality_bean.getStatus();
             if (status==0){
-                List<Commonality_bean.DataBean.FeedbackBean> feedback = commonality_bean.getData().getFeedback();
-                for (int i = 0; i < feedback.size(); i++) {
-                    Constant.ids= feedback.get(i).getId();
-                }
-                List<Commonality_bean.DataBean.RepairBean> repair = commonality_bean.getData().getRepair();
-                Constant.list=repair;
-                Toast.makeText(MainActivity.this, "请求成功", Toast.LENGTH_SHORT).show();
-            }else{
-                Log.e("status",status+"");
-            }
 
+            }else{
+
+            }
         }
+
     }
 }

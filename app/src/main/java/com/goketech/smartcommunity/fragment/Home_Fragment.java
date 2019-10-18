@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.goketech.smartcommunity.MainActivity;
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.Announce_bean;
@@ -30,7 +31,6 @@ import com.goketech.smartcommunity.presenter.Home_Presenter;
 import com.goketech.smartcommunity.presenter.acivity.Announcement_acivity;
 import com.goketech.smartcommunity.presenter.acivity.QR_acivity;
 import com.goketech.smartcommunity.presenter.acivity.Repairs_acivity;
-import com.goketech.smartcommunity.presenter.acivity.Visitors_acivity;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
@@ -55,6 +55,20 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     Toolbar mTb;
     @BindView(R.id.banner)
     Banner mBanner;
+    @BindView(R.id.fees)
+    ImageView mFees;
+    @BindView(R.id.iv_guanli)
+    ImageView mIvGuanli;
+    @BindView(R.id.ll_iv)
+    LinearLayout mLlIv;
+    @BindView(R.id.entrance)
+    TextView mEntrance;
+    @BindView(R.id.managment)
+    TextView mManagment;
+    @BindView(R.id.cost)
+    TextView mCost;
+    @BindView(R.id.warranty)
+    TextView mWarranty;
     @BindView(R.id.ll_text)
     LinearLayout mLlText;
     @BindView(R.id.tongzhi)
@@ -81,23 +95,11 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     TextView mTitle2;
     @BindView(R.id.tv_title3)
     TextView mTvTitle3;
-    Unbinder unbinder1;
-    Unbinder unbinder;
-    @BindView(R.id.entrance)
-    TextView entrance;
-    @BindView(R.id.managment)
-    TextView managment;
     @BindView(R.id.fei)
-    TextView fei;
+    ImageView fei;
+    Unbinder unbinder1;
     @BindView(R.id.repairs)
-    TextView repairs;
-    @BindView(R.id.fangke)
-    TextView fangke;
-
     ImageView repairs;
-    @BindView(R.id.visitor)
-    ImageView visitor;
-    Unbinder unbinder;
     private Bundle house_id;
     private String name;
 
@@ -117,6 +119,7 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     protected void initView() {
         Intent intent = getActivity().getIntent();
         house_id = intent.getBundleExtra("house_id");
+
 
     }
 
@@ -163,25 +166,14 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
 
     @Override
     protected void initListener() {
-        //保修服务
-        //新增访客
-        visitor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Visitors_acivity.class);
-                startActivity(intent);
-            }
-        });
-        //保修服务
         repairs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Repairs_acivity.class);
+                Intent intent=new Intent(getActivity(),Repairs_acivity.class);
                 startActivity(intent);
 
             }
         });
-        //物业缴费
         fei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,20 +181,14 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
                 startActivity(intent);
             }
         });
-        //门禁钥匙
-        entrance.setOnClickListener(new View.OnClickListener() {
-        //二维码
         mFees.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), QR_acivity.class);
-                intent.putExtra("house_id", house_id);
+                intent.putExtra("house_id",house_id);
                 startActivity(intent);
             }
         });
-        //物业管理
-        managment.setOnClickListener(new View.OnClickListener() {
-        //联系物业
         mIvGuanli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -315,8 +301,8 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     public void getdata_Commonality(Commonality_bean commonality_bean) {
         if (commonality_bean != null) {
             int status = commonality_bean.getStatus();
-            if (status == 0) {
-                Log.i("Tab", status + "");
+            if (status==0){
+                Log.i("Tab",status+"");
                 List<Commonality_bean.DataBean.RepairBean> repair = commonality_bean.getData().getRepair();
                 for (int i = 0; i < repair.size(); i++) {
                     int id = repair.get(i).getId();
@@ -333,14 +319,6 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     public void onDestroyView() {
         super.onDestroyView();
         unbinder1.unbind();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
     }
 
     private class MyLoader extends ImageLoader {

@@ -22,15 +22,18 @@ import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Acivity_Web_bean;
 import com.goketech.smartcommunity.bean.Apply_bean;
 import com.goketech.smartcommunity.interfaces.contract.AcivityWeb_Contracy;
-import com.goketech.smartcommunity.presenter.AcivityWeb_Presenter;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
-
+import butterknife.ButterKnife;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
@@ -51,7 +54,7 @@ public class Acivity_WebView_acivity extends BaseActivity<AcivityWeb_Contracy.Vi
 
     @Override
     protected AcivityWeb_Contracy.Presenter getPresenter() {
-        return new AcivityWeb_Presenter();
+        return null;
     }
 
     @Override
@@ -148,6 +151,7 @@ public class Acivity_WebView_acivity extends BaseActivity<AcivityWeb_Contracy.Vi
                 .add("sign", sign)
                 .build();
         Log.e("Tab", id);
+
         mPresenter.getData_AcivityWeb(req);
 
     }
@@ -160,8 +164,7 @@ public class Acivity_WebView_acivity extends BaseActivity<AcivityWeb_Contracy.Vi
                 Acivity_Web_bean.DataBean data = acivity_web_bean.getData();
                 dataBeans.add(data);
                 Toast.makeText(Acivity_WebView_acivity.this, "请求成功", Toast.LENGTH_SHORT).show();
-                acivityWeb_adaper.notifyDataSetChanged();
-              } else {
+            } else {
                 Log.e("aa", status+"");
                 Toast.makeText(Acivity_WebView_acivity.this, acivity_web_bean.getMsg(), Toast.LENGTH_SHORT).show();
             }

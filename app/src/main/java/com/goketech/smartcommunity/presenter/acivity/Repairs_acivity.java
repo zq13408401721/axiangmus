@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goketech.smartcommunity.R;
-import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.bean.Repairs_bean;
@@ -21,7 +20,6 @@ import com.goketech.smartcommunity.interfaces.contract.Repair_contracy;
 import com.goketech.smartcommunity.presenter.Repairs_presenter;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +67,6 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
     private CharSequence recording;
     private int id1;
     private List<Commonality_bean.DataBean.RepairBean> repair;
-    private String name;
 
     @Override
     protected Repair_contracy.Presenter getPresenter() {
@@ -99,12 +96,6 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
                 finish();
             }
         });
-       List<Commonality_bean.DataBean.RepairBean> list = new ArrayList<>();
-        list=Constant.list;
-        for (int i = 0; i < list.size(); i++) {
-            name = list.get(i).getName();
-            tl.addTab(tl.newTab().setText(name));
-        }
         tl.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -144,12 +135,7 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
 
     @Override
     protected void initData() {
-        Map<String, String> mapss = new HashMap<>();
-        String sign1 = ASCIIUtils.getSign(mapss);
-        RequestBody requestBodyss = new FormBody.Builder()
-                .add("sign", sign1)
-                .build();
-       mPresenter.getData_Commonality(requestBodyss);
+
         btTijiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,9 +170,16 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
                         .build();
                 mPresenter.getData_Repair(requestBody);
 
-              /*  for (int i = 0; i < repair.size(); i++) {
+                Map<String, String> mapss = new HashMap<>();
+                String sign1 = ASCIIUtils.getSign(mapss);
+                RequestBody requestBodyss = new FormBody.Builder()
+                        .add("sign", sign1)
+                        .build();
+                mPresenter.getData_Commonality(requestBodyss);
 
-                }*/
+                for (int i = 0; i < repair.size(); i++) {
+                    tl.addTab(tl.newTab().setText(repair.get(i).getName()));
+                }
 
             }
         });
@@ -213,11 +206,17 @@ public class Repairs_acivity extends BaseActivity<Repair_contracy.View, Repair_c
                 Toast.makeText(Repairs_acivity.this, "提交成功", Toast.LENGTH_SHORT).show();
                 repair = commonality_bean.getData().getRepair();
                 for (int i = 0; i < repair.size(); i++) {
-                    tl.addTab(tl.newTab().setText(repair.get(i).getName()));
                     id1 = repair.get(i).getId();
+
                 }
             }
         }
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

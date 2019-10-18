@@ -27,7 +27,7 @@
     <TextView
         android:id="@+id/bindphone_tvmsg"
         android:textSize="@dimen/sp_15"
-        android:text="@string/fanzghidiushi"
+        android:text=""
         app:layout_constraintTop_toBottomOf="@id/bindphone_tv"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="@dimen/dp_57"
@@ -62,7 +62,7 @@
         app:layout_constraintBottom_toBottomOf="@id/bindphone_phonenum"
        android:layout_marginLeft="@dimen/dp_247"
         android:textSize="@dimen/sp_15"
-        android:text="@string/huoquyanzhengma"
+        android:text="获取验证码"
         android:textColor="#00837B"
         android:id="@+id/bindphone_getcode"
 

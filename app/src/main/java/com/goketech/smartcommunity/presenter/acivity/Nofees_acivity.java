@@ -1,8 +1,6 @@
 package com.goketech.smartcommunity.presenter.acivity;
 
-import android.os.Build;
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toolbar;
-
 
 import com.goketech.smartcommunity.R;
 
@@ -41,7 +38,6 @@ public class Nofees_acivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_nofees_acivity);
         initView();
     }
-
 
     private void initView() {
         mFan = (ImageView) findViewById(R.id.fan);

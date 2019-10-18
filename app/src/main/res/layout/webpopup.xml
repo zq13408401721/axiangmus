@@ -48,7 +48,7 @@
            android:layout_marginTop="@dimen/dp_45"
            android:layout_centerInParent="true"
            android:layout_marginLeft="@dimen/dp_60"
-           android:text="报名"
+           android:text="呼叫"
            />
    </RelativeLayout>
 

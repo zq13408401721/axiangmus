@@ -18,10 +18,9 @@
             android:src="@mipmap/wuyekefu"
             />
         <TextView
-            android:gravity="center"
             android:id="@+id/steward"
-            android:layout_width="@dimen/dp_57"
-            android:layout_height="@dimen/dp_16"
+            android:layout_width="@dimen/dp_55"
+            android:layout_height="@dimen/dp_13"
             android:text="物业管家"
             android:textSize="@dimen/dp_14"
             android:layout_below="@id/iv_wuye"
@@ -31,7 +30,7 @@
         <TextView
             android:id="@+id/phone"
             android:layout_width="@dimen/dp_91"
-            android:layout_height="@dimen/dp_16"
+            android:layout_height="@dimen/dp_14"
             android:layout_below="@+id/steward"
             android:layout_marginLeft="@dimen/dp_90"
             android:layout_marginTop="@dimen/dp_10"

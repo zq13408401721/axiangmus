@@ -1,16 +1,17 @@
 package com.goketech.smartcommunity.interfaces.contract;
 
-import com.goketech.smartcommunity.bean.Verification_bean;
+import com.goketech.smartcommunity.bean.Acivity_Web_bean;
+import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.interfaces.IBasePresenter;
 import com.goketech.smartcommunity.interfaces.IBaseView;
 
 import okhttp3.RequestBody;
 
-public interface Verification_Conreacy {
+public interface Commonality_Contract {
     interface View extends IBaseView {
-        void getdata_Verification(Verification_bean verification_bean);
+        void getdata_Commonality(Commonality_bean commonality_bean);
     }
     interface Presenter extends IBasePresenter<View> {
-        void getData_Verification(RequestBody body);
+        void getData_Commonality(RequestBody body);
     }
 }

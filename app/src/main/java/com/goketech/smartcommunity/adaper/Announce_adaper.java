@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.goketech.smartcommunity.R;
@@ -43,11 +42,10 @@ public class Announce_adaper extends RecyclerView.Adapter<Announce_adaper.ViewHo
         }else if (status==2){
             viewHodler.tv_jieqing.setText("已支付");
         }
-
         viewHodler.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setfei.Setfei(viewHodler.RL_dianji,i,viewHodler.tv_jieqing);
+                setfei.Setfei(viewHodler.RL_dianji,i,viewHodler.tv_jieqing);
             }
         });
     }
@@ -60,7 +58,7 @@ public class Announce_adaper extends RecyclerView.Adapter<Announce_adaper.ViewHo
     public class ViewHodler extends RecyclerView.ViewHolder {
         private TextView tv_zhang;
         private TextView tv_jieqing;
-        private RelativeLayout RL_dianji;
+        private RecyclerView RL_dianji;
         public ViewHodler(@NonNull View itemView) {
             super(itemView);
             tv_zhang=itemView.findViewById(R.id.zhang);
@@ -75,6 +73,6 @@ public class Announce_adaper extends RecyclerView.Adapter<Announce_adaper.ViewHo
     }
 
     public interface Setfei{
-        void Setfei(RelativeLayout RL_dianji, int p, TextView tv_ji);
+        void Setfei(RecyclerView RL_dianji, int p, TextView tv_ji);
     }
 }

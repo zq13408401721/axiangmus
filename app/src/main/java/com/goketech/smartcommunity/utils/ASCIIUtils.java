@@ -1,8 +1,6 @@
 package com.goketech.smartcommunity.utils;
 
 import android.util.Log;
-
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -30,7 +28,7 @@ public class ASCIIUtils {
             for (Map.Entry<String, String> item : infoIds) {
                 if (item.getKey() != null || item.getKey() != "") {
                     String key = item.getKey();
-                    String val = URLEncoder.encode(item.getValue());
+                    String val = item.getValue();
                     if (!(val == "" || val == null)) {
                         sb.append(key + "=" + val + "&");
                     }
