@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.goketech.smartcommunity.MainActivity;
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.Announce_bean;
@@ -29,8 +28,10 @@ import com.goketech.smartcommunity.bean.Home_bean;
 import com.goketech.smartcommunity.interfaces.contract.Home_Contracy;
 import com.goketech.smartcommunity.presenter.Home_Presenter;
 import com.goketech.smartcommunity.presenter.acivity.Announcement_acivity;
+import com.goketech.smartcommunity.presenter.acivity.Number_acivity;
 import com.goketech.smartcommunity.presenter.acivity.QR_acivity;
 import com.goketech.smartcommunity.presenter.acivity.Repairs_acivity;
+import com.goketech.smartcommunity.presenter.acivity.Visitors_acivity;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
@@ -100,6 +101,9 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     Unbinder unbinder1;
     @BindView(R.id.repairs)
     ImageView repairs;
+    @BindView(R.id.visitor)
+    ImageView visitor;
+    Unbinder unbinder;
     private Bundle house_id;
     private String name;
 
@@ -166,14 +170,70 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
 
     @Override
     protected void initListener() {
+        //新增访客
+        visitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //1.new 对象
+                //2.指定三要素
+                //3.显示
+                final PopupWindow popupWindow = new PopupWindow();
+                //必须给定三要素: 视图(view),宽,高
+                //view
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getActivity().getWindow().setAttributes(lp);
+
+                View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.visiors_popuwind, null, false);
+                popupWindow.setContentView(inflate);
+                //宽
+                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                //高
+                popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+
+                View inflate1 = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home_, null, false);
+                popupWindow.showAtLocation(inflate1, Gravity.CENTER, 0, 0);
+                ImageView pop_img = inflate.findViewById(R.id.pop_img);
+                pop_img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getActivity().getWindow().setAttributes(lp);
+                    }
+                });
+                Button shijian = inflate.findViewById(R.id.shijian);
+                Button number = inflate.findViewById(R.id.number);
+               shijian.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent = new Intent(getActivity(), Visitors_acivity.class);
+                       startActivity(intent);
+                   }
+               });
+               number.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent = new Intent(getActivity(), Number_acivity.class);
+                       startActivity(intent);
+                   }
+               });
+
+
+
+            }
+        });
+        //保修服务
         repairs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(),Repairs_acivity.class);
+                Intent intent = new Intent(getActivity(), Repairs_acivity.class);
                 startActivity(intent);
 
             }
         });
+        //物业缴费
         fei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,14 +241,16 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
                 startActivity(intent);
             }
         });
+        //二维码
         mFees.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), QR_acivity.class);
-                intent.putExtra("house_id",house_id);
+                intent.putExtra("house_id", house_id);
                 startActivity(intent);
             }
         });
+        //联系物业
         mIvGuanli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -301,8 +363,8 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     public void getdata_Commonality(Commonality_bean commonality_bean) {
         if (commonality_bean != null) {
             int status = commonality_bean.getStatus();
-            if (status==0){
-                Log.i("Tab",status+"");
+            if (status == 0) {
+                Log.i("Tab", status + "");
                 List<Commonality_bean.DataBean.RepairBean> repair = commonality_bean.getData().getRepair();
                 for (int i = 0; i < repair.size(); i++) {
                     int id = repair.get(i).getId();
@@ -319,6 +381,14 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
     public void onDestroyView() {
         super.onDestroyView();
         unbinder1.unbind();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
     }
 
     private class MyLoader extends ImageLoader {

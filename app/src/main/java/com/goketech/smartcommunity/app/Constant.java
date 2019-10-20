@@ -5,6 +5,7 @@ import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.bean.Landing_bean;
 
 import java.io.File;
+import java.util.List;
 
 public class Constant {
 
@@ -41,4 +42,6 @@ public class Constant {
     //登陆houre_id
     public  static  int houre_id;
 
+    //来访次数
+    public static  String number;
 }

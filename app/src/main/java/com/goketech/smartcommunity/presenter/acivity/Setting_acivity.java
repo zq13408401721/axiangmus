@@ -77,7 +77,7 @@ public class Setting_acivity extends BaseActivity {
         Intent intent = getIntent();
         String sd = intent.getStringExtra("sd");
         String name = intent.getStringExtra("name");
-        tvName.setText(name);
+       tvNames.setText(name);
 
     }
 

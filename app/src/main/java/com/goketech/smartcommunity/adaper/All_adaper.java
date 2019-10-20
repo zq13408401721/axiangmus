@@ -12,11 +12,11 @@ import com.goketech.smartcommunity.bean.All_bean;
 
 import java.util.ArrayList;
 
-public class Proccessing_adaper extends RecyclerView.Adapter<Proccessing_adaper.ViewHodler>{
+public class All_adaper extends RecyclerView.Adapter<All_adaper.ViewHodler>{
     private ArrayList<All_bean.DataBean> nei;
     private Context context;
 
-    public Proccessing_adaper(ArrayList<All_bean.DataBean> nei, Context context) {
+    public All_adaper(ArrayList<All_bean.DataBean> nei, Context context) {
         this.nei = nei;
         this.context = context;
     }
@@ -39,12 +39,12 @@ public class Proccessing_adaper extends RecyclerView.Adapter<Proccessing_adaper.
         viewHodler.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                proccessing.Proccessing(i,assigned_phone,viewHodler.phone);
+                all.All(i,assigned_phone,viewHodler.phone);
             }
         });
         viewHodler.tv_xian.setText(remark);
         if (order_type==0){
-            viewHodler.tv_chu.setText("已完成");
+            viewHodler.tv_chu.setText("全部");
         }
         viewHodler.dizhi.setText(address);
         viewHodler.itme.setText(date);
@@ -71,13 +71,13 @@ public class Proccessing_adaper extends RecyclerView.Adapter<Proccessing_adaper.
             phone=itme.findViewById(R.id.phone);
         }
     }
-    private Proccessing proccessing;
+    private All all;
 
-    public void setProccessing(Proccessing proccessing) {
-        this.proccessing = proccessing;
+    public void setAll(All all) {
+        this.all = all;
     }
 
-    public interface Proccessing{
-        void Proccessing(int p,String phone,TextView tv);
+    public interface All{
+        void All(int p, String phone, TextView tv);
     }
 }

@@ -26,7 +26,7 @@
     <string name="jingxixiangyunxiaoqu">京西祥云小区业主问卷调查</string>
     <string name="louhao">请输入你的楼号</string>
     <string name="zhiye">请输入你的职业</string>
-    <string name="laifang">来访方式</string>
+    <string name="laifang">请选择来访的时间段</string>
     <string name="year">年</string>
     <string name="minute">日</string>
     <string name="neighbor">邻里</string>

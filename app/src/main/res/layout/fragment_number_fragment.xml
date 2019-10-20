@@ -9,15 +9,16 @@
         android:id="@+id/shiduan"
         android:layout_width="@dimen/dp_63"
         android:layout_height="@dimen/dp_16"
-
         android:layout_marginLeft="@dimen/dp_14"
         android:layout_marginTop="@dimen/dp_37"
         android:text="来访次数" />
     <EditText
+        android:id="@+id/et_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
         android:layout_toRightOf="@id/shiduan"
-        android:hint="来访次数"
+        android:hint="请输入来访次数"
+        android:textSize="@dimen/dp_16"
         android:layout_marginTop="@dimen/dp_37"/>
 </RelativeLayout>
