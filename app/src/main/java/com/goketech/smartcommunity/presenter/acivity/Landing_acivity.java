@@ -114,8 +114,8 @@ public class Landing_acivity extends BaseActivity<WeiCode_Conreacy.View, WeiCode
             @Override
             public void onClick(View v) {
                 weChatAuth();
+
                /* Map<String, String> map = new HashMap<>();
-              /*  Map<String, String> map = new HashMap<>();
                 map.put("wx_code", code);
                 String sign = ASCIIUtils.getSign(map);
                 RequestBody requestBody = new FormBody.Builder()
@@ -123,7 +123,9 @@ public class Landing_acivity extends BaseActivity<WeiCode_Conreacy.View, WeiCode
                         .add("sign",sign)
                         .build();
                 mPresenter.getData_Weicaode(android_code,requestBody);*/
-                mPresenter.getData_Weicaode(requestBody);
+               /* Map<String, String> map = new HashMap<>();
+
+                /*mPresenter.getData_Weicaode(requestBody);
 
                 Map<String,String> map1 = new HashMap<>();
                 map1.put("code",code);

@@ -13,11 +13,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.goketech.smartcommunity.R;
+import com.goketech.smartcommunity.app.Constant;
 import com.goketech.smartcommunity.base.BaseFragment;
 import com.goketech.smartcommunity.bean.My_bean;
 import com.goketech.smartcommunity.interfaces.contract.My_Contracy;
 import com.goketech.smartcommunity.presenter.My_Preserter;
 import com.goketech.smartcommunity.presenter.acivity.My_house;
+import com.goketech.smartcommunity.presenter.acivity.Repair_list_acivity;
 import com.goketech.smartcommunity.utils.ASCIIUtils;
 
 import java.util.HashMap;
@@ -109,6 +111,8 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
     private int total_apply;
     private int status;
 
+    List<My_bean.DataBean.HouseListBean> house_list;
+
     @Override
     protected My_Contracy.Presenter getPresenter() {
         return new My_Preserter();
@@ -191,7 +195,7 @@ public class My_Fragment extends BaseFragment<My_Contracy.View, My_Contracy.Pres
                 //活动
                 List<My_bean.DataBean.ActivityListBean> activity_list = my_bean.getData().getActivity_list();
                 //房屋
-                List<My_bean.DataBean.HouseListBean> house_list = my_bean.getData().getHouse_list();
+                house_list = my_bean.getData().getHouse_list();
                 for (int i = 0; i < activity_list.size(); i++) {
                     String address = activity_list.get(0).getAddress();
                     Log.e("Tab",address);

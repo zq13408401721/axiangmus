@@ -20,8 +20,8 @@
             android:layout_gravity="left"
             android:src="@mipmap/fanhuhei"/>
         <TextView
-            android:layout_width="@dimen/dp_71"
-            android:layout_height="@dimen/dp_18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/Web"
             android:textSize="@dimen/dp_17"
