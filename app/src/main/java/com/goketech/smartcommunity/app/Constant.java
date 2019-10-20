@@ -42,5 +42,6 @@ public class Constant {
     //登陆houre_id
     public  static  int houre_id;
 
-
+    //来访次数
+    public static  String number;
 }

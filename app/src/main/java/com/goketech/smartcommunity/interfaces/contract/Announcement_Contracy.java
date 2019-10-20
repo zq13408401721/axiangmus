@@ -1,8 +1,6 @@
 package com.goketech.smartcommunity.interfaces.contract;
 
-import com.goketech.smartcommunity.bean.Announce_bean;
 import com.goketech.smartcommunity.bean.Announcement_bean;
-import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.interfaces.IBasePresenter;
 import com.goketech.smartcommunity.interfaces.IBaseView;
 

@@ -115,26 +115,12 @@ public class Orders_fragment extends BaseFragment<All_Contracy.View, All_Contrac
                 List<All_bean.DataBean> data = all_bean.getData();
                 dataBeans1.addAll(data);
                 Orange_adaper.notifyDataSetChanged();
-<<<<<<< HEAD
-
-                Toast.makeText(getActivity(),"处理中", Toast.LENGTH_SHORT).show();
-
 
                 if (data.equals("")){
                     Toast.makeText(getActivity(),"您还没有接单" ,Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getActivity(), "正在进行中的订单", Toast.LENGTH_SHORT).show();
                 }
-
-=======
-                if (data!=null){
-                    Toast.makeText(getActivity(),"您接收到的订单正在处理中", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getActivity(),"您没有要处理的订单", Toast.LENGTH_SHORT).show();
-                }
->>>>>>> origin/master
-            }else{
-                Log.i("Tab", String.valueOf(status));
             }
         }
 

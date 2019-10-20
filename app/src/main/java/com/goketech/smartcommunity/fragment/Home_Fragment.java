@@ -28,6 +28,7 @@ import com.goketech.smartcommunity.bean.Home_bean;
 import com.goketech.smartcommunity.interfaces.contract.Home_Contracy;
 import com.goketech.smartcommunity.presenter.Home_Presenter;
 import com.goketech.smartcommunity.presenter.acivity.Announcement_acivity;
+import com.goketech.smartcommunity.presenter.acivity.Number_acivity;
 import com.goketech.smartcommunity.presenter.acivity.QR_acivity;
 import com.goketech.smartcommunity.presenter.acivity.Repairs_acivity;
 import com.goketech.smartcommunity.presenter.acivity.Visitors_acivity;
@@ -173,8 +174,54 @@ public class Home_Fragment extends BaseFragment<Home_Contracy.View, Home_Contrac
         visitor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Visitors_acivity.class);
-                startActivity(intent);
+                //1.new 对象
+                //2.指定三要素
+                //3.显示
+                final PopupWindow popupWindow = new PopupWindow();
+                //必须给定三要素: 视图(view),宽,高
+                //view
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                lp.alpha = 0.7f;
+                getActivity().getWindow().setAttributes(lp);
+
+                View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.visiors_popuwind, null, false);
+                popupWindow.setContentView(inflate);
+                //宽
+                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                //高
+                popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+
+                View inflate1 = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home_, null, false);
+                popupWindow.showAtLocation(inflate1, Gravity.CENTER, 0, 0);
+                ImageView pop_img = inflate.findViewById(R.id.pop_img);
+                pop_img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                        lp.alpha = 1f;
+                        getActivity().getWindow().setAttributes(lp);
+                    }
+                });
+                Button shijian = inflate.findViewById(R.id.shijian);
+                Button number = inflate.findViewById(R.id.number);
+               shijian.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent = new Intent(getActivity(), Visitors_acivity.class);
+                       startActivity(intent);
+                   }
+               });
+               number.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent = new Intent(getActivity(), Number_acivity.class);
+                       startActivity(intent);
+                   }
+               });
+
+
+
             }
         });
         //保修服务
