@@ -50,6 +50,49 @@
             android:layout_marginLeft="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_12"
             android:layout_marginRight="@dimen/dp_15" />
+
+        <LinearLayout
+            android:id="@+id/ll_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_246"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/fees"
+                android:layout_width="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_height="@dimen/dp_22"
+                android:src="@mipmap/menjinyaoshi"/>
+            <ImageView
+                android:id="@+id/iv_guanli"
+                android:layout_width="@dimen/dp_23"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_50"
+                android:src="@mipmap/lianxiwuy"/>
+
+            <ImageView
+                android:id="@+id/fei"
+                android:layout_width="@dimen/dp_23"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_50"
+                android:src="@mipmap/jiaofei" />
+            <ImageView
+                android:id="@+id/repairs"
+                android:layout_width="@dimen/dp_23"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_50"
+                android:src="@mipmap/baoxiu"/>
+            <ImageView
+                android:id="@+id/visitor"
+                android:layout_width="23dp"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="@dimen/dp_50"
+                android:layout_height="@dimen/dp_22"
+                android:src="@mipmap/fangke"/>
+
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/ll_iv"
             android:layout_width="match_parent"

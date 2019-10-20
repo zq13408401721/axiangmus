@@ -1,6 +1,7 @@
 package com.goketech.smartcommunity.interfaces.contract;
 
 import com.goketech.smartcommunity.bean.MyAcivity_bean;
+import com.goketech.smartcommunity.bean.MyHoure_bean;
 import com.goketech.smartcommunity.bean.My_bean;
 import com.goketech.smartcommunity.interfaces.IBasePresenter;
 import com.goketech.smartcommunity.interfaces.IBaseView;

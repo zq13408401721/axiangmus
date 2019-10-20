@@ -15,6 +15,7 @@ import com.goketech.smartcommunity.bean.Commonality_bean;
 import com.goketech.smartcommunity.fragment.Activity_Fragment;
 import com.goketech.smartcommunity.fragment.Home_Fragment;
 import com.goketech.smartcommunity.fragment.My_Fragment;
+import com.goketech.smartcommunity.fragment.Neighborhood_Fragment;
 import com.goketech.smartcommunity.interfaces.contract.Commonality_Contract;
 import com.goketech.smartcommunity.presenter.Commonality_presenter;
 import com.goketech.smartcommunity.utils.ASCIIUtils;

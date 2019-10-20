@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.adaper.My_Houre_adaper;
 import com.goketech.smartcommunity.base.BaseActivity;
+import com.goketech.smartcommunity.bean.Delete_bean;
+import com.goketech.smartcommunity.bean.MyAcivity_bean;
 import com.goketech.smartcommunity.bean.MyHoure_bean;
 import com.goketech.smartcommunity.interfaces.contract.MyHour_Contracy;
 import com.goketech.smartcommunity.presenter.MyAcivity_Presenter;
@@ -109,16 +111,13 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
             }
         }
     }
-
     @Override
-    public void showError(String errorMsg) {
+    public void getdata_delete(Delete_bean delete_bean) {
 
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public void showError(String errorMsg) {
+
     }
 }

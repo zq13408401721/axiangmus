@@ -29,14 +29,6 @@ public class Time_fragment extends BaseFragment {
     private int nian;
     private int yue;
     private int ri;
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_time_fragment, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
 
     @Override
     protected void initView() {
@@ -50,7 +42,7 @@ public class Time_fragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragment_time_fragment;
     }
 
 /*    //接口回调

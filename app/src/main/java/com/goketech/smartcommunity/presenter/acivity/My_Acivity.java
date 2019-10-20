@@ -103,11 +103,4 @@ public class My_Acivity extends BaseActivity<MyAcivity_Contracy.View, MyAcivity_
     public void showError(String errorMsg) {
 
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

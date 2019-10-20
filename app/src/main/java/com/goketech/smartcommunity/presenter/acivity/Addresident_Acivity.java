@@ -69,7 +69,7 @@ public class Addresident_Acivity extends BaseActivity<Repairs_Contracy.View, Rep
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_addresident__acivity;
+        return R.layout.activity_addresident_acivity;
     }
 
     @Override

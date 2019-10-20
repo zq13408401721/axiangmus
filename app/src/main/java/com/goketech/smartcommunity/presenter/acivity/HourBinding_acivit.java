@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.goketech.smartcommunity.R;
 import com.goketech.smartcommunity.base.BaseActivity;
 import com.goketech.smartcommunity.bean.Binding_bean;
+import com.goketech.smartcommunity.bean.SetHour_bean;
 import com.goketech.smartcommunity.interfaces.contract.Binding_Contracy;
 import com.goketech.smartcommunity.presenter.Banding_Presenter;
 
@@ -157,9 +158,7 @@ public class HourBinding_acivit extends BaseActivity<Binding_Contracy.View, Bind
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public void getdata_SetHour(SetHour_bean setHour) {
+
     }
 }
