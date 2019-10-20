@@ -7,8 +7,8 @@
     tools:context=".presenter.acivity.Binding_acivity">
     <ImageView
         android:id="@+id/fan"
-        android:layout_width="@dimen/dp_9"
-        android:layout_height="@dimen/dp_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@mipmap/back"
         android:layout_marginTop="@dimen/dp_14"
         android:layout_marginLeft="@dimen/dp_15"
@@ -20,8 +20,8 @@
         android:layout_marginTop="@dimen/dp_106"
         android:layout_marginLeft="@dimen/dp_56"/>
     <TextView
-        android:layout_width="@dimen/dp_194"
-        android:layout_height="@dimen/dp_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_56"
         android:layout_marginTop="@dimen/dp_144"
         android:text="为防止账号丢失请绑定手机号"/>
