@@ -82,7 +82,7 @@ public class Hour_Binding_acivity extends BaseActivity<Binding_Contracy.View, Bi
     private LinearLayoutManager linearLayoutManager;
     private List<SetHour_bean.DataBean> data;
     private String ids;
-
+    //asd
     @Override
     protected Binding_Contracy.Presenter getPresenter() {
         return new Banding_Presenter();
