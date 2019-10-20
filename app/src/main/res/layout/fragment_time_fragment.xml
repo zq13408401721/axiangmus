@@ -19,14 +19,14 @@
         android:datePickerMode="spinner"
         android:layout_height="@dimen/dp_100"
         android:calendarViewShown="false" />
-    <TextView
+    <!--<TextView
         android:id="@+id/dao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_below="@id/shiduan"
         android:layout_toRightOf="@id/ll_date"
-        android:text="到"/>
+        android:text="到"/>-->
 
     <DatePicker
         android:id="@+id/dpPicker1"
