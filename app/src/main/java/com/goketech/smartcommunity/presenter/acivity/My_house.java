@@ -115,6 +115,7 @@ public class My_house extends BaseActivity<MyHour_Contracy.View, MyHour_Contracy
 
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
